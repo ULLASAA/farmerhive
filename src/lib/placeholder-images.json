@@ -95,6 +95,30 @@
       "condition": "Good",
       "imageUrl": "https://picsum.photos/seed/sprinkler/600/400",
       "imageHint": "irrigation sprinkler"
+    },
+    {
+      "id": "9",
+      "name": "Seeder",
+      "description": "An efficient seeder for precise planting. Can be adjusted for different seed types.",
+      "category": "tools",
+      "subcategory": "agricultural machinery",
+      "price": 80,
+      "unit": "day",
+      "condition": "Good",
+      "imageUrl": "https://picsum.photos/seed/seeder/600/400",
+      "imageHint": "farm seeder"
+    },
+    {
+      "id": "10",
+      "name": "Plougher",
+      "description": "A robust plougher for breaking up hard soil. Ideal for preparing land for cultivation.",
+      "category": "tools",
+      "subcategory": "agricultural machinery",
+      "price": 70,
+      "unit": "day",
+      "condition": "Good",
+      "imageUrl": "https://picsum.photos/seed/plougher/600/400",
+      "imageHint": "farm plough"
     }
   ]
 }
