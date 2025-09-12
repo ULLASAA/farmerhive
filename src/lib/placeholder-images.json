@@ -49,18 +49,6 @@
       "imageHint": "spraying crops"
     },
     {
-      "id": "5",
-      "name": "Nitrogen Fertilizer",
-      "description": "Rich nitrogen fertilizer to boost plant growth and yield. Price per 50kg bag.",
-      "category": "fertilizers",
-      "subcategory": "nitrogen",
-      "price": 40,
-      "unit": "bag",
-      "condition": "New",
-      "imageUrl": "https://images.unsplash.com/photo-1661669037580-4879ceae9ea8?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw2fHxuaXRyb2dlbiUyMGZlcnRpbGl6ZXIlMjBiYWd8ZW58MHx8fHwxNzU3Njk1MzcxfDA&ixlib=rb-4.1.0&q=80&w=1080",
-      "imageHint": "fertilizer bags"
-    },
-    {
       "id": "6",
       "name": "Plow Attachment",
       "description": "Durable plow for tilling soil before planting. Attaches to most standard tractors.",
