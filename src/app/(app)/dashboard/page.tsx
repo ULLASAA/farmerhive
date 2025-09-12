@@ -5,7 +5,7 @@ import { Bar, BarChart, CartesianGrid, XAxis, YAxis, Tooltip, Legend, Responsive
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from '@/components/ui/card';
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from '@/components/ui/table';
 import { rentalItems, buyableCategories } from '@/lib/placeholder-images';
-import { IndianRupee, Tractor, ShoppingBag } from 'lucide-react';
+import { IndianRupee, Tractor, ShoppingBag, Percent, Users } from 'lucide-react';
 
 // --- Mock Data Simulation ---
 // In a real app, this would come from a database of completed transactions.
@@ -39,6 +39,9 @@ const totalOwnerPayouts = transactions.reduce((acc, t) => acc + t.ownerPayout, 0
 const totalCompanyProfit = transactions.reduce((acc, t) => acc + t.companyProfit, 0);
 const totalRentals = transactions.filter(t => t.transactionType === 'Rental').length;
 const totalSales = transactions.filter(t => t.transactionType === 'Sale').length;
+const companyProfitMargin = totalRevenue > 0 ? (totalCompanyProfit / totalRevenue) * 100 : 0;
+const farmerSharePercentage = totalRevenue > 0 ? (totalOwnerPayouts / totalRevenue) * 100 : 0;
+
 
 const revenueByCategory = transactions.reduce((acc, t) => {
   if (!acc[t.category]) {
@@ -60,7 +63,7 @@ export default function DashboardPage() {
       <h1 className="mb-8 text-3xl font-bold tracking-tight">Company Dashboard</h1>
       
       {/* Key Metrics */}
-      <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3 mb-8">
+      <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 mb-8">
         <Card>
           <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
             <CardTitle className="text-sm font-medium">Total Company Profit</CardTitle>
@@ -89,6 +92,26 @@ export default function DashboardPage() {
           <CardContent>
             <div className="text-2xl font-bold">{totalSales}</div>
             <p className="text-xs text-muted-foreground">Items sold from marketplace</p>
+          </CardContent>
+        </Card>
+         <Card>
+          <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
+            <CardTitle className="text-sm font-medium">Company Profit Margin</CardTitle>
+            <Percent className="h-4 w-4 text-muted-foreground" />
+          </CardHeader>
+          <CardContent>
+            <div className="text-2xl font-bold">{companyProfitMargin.toFixed(1)}%</div>
+            <p className="text-xs text-muted-foreground">Based on total revenue</p>
+          </CardContent>
+        </Card>
+        <Card>
+          <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
+            <CardTitle className="text-sm font-medium">Farmer's Share</CardTitle>
+            <Users className="h-4 w-4 text-muted-foreground" />
+          </CardHeader>
+          <CardContent>
+            <div className="text-2xl font-bold">{farmerSharePercentage.toFixed(1)}%</div>
+            <p className="text-xs text-muted-foreground">Percentage of revenue paid out</p>
           </CardContent>
         </Card>
       </div>
