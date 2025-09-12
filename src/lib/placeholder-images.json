@@ -163,7 +163,7 @@
       "price": 300,
       "unit": "hour",
       "condition": "Good",
-      "imageUrl": "https://picsum.photos/seed/backpack-sprayer/600/400",
+      "imageUrl": "https://images.unsplash.com/photo-1749030432965-da86e3abc957?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw0fHxiYWNrcGFjayUyMHNwcmF5ZXIlMjBhZ3JpY3VsdHVyYWwlMjB0b29sfGVufDB8fHx8MTc1NzcwNzA1MXww&ixlib=rb-4.1.0&q=80&w=1080",
       "imageHint": "backpack sprayer",
       "owner": {
         "id": "owner-2",
@@ -185,7 +185,7 @@
       "price": 550,
       "unit": "container",
       "condition": "New",
-      "imageUrl": "https://images.unsplash.com/photo-1653543362966-a97e081f3086?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxOXx8cGVzdGljaWRlJTIwYmFnfGVufDB8fHx8MTc1NzY5ODI2M3ww&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageUrl": "https://images.unsplash.com/photo-1653543362966-a97e081f3086?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxOXx8cGVzdGljaWRlJTIwYmFnfGVufDB8fHx8MTc1NzY5ODI2M3ww&ixlib-rb-4.1.0&q=80&w=1080",
       "imageHint": "pesticide bottle",
       "owner": {
         "id": "owner-7",
@@ -207,7 +207,7 @@
       "price": 1200,
       "unit": "bag",
       "condition": "New",
-      "imageUrl": "https://images.unsplash.com/photo-1661669037580-4879ceae9ea8?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw2fHxuaXRyb2dlbiUyMGZlcnRpbGl6ZXIlMjBiYWd8ZW58MHx8fHwxNzU3Njk1MzcxfDA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageUrl": "https://images.unsplash.com/photo-1661669037580-4879ceae9ea8?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw2fHxuaXRyb2dlbiUyMGZlcnRpbGl6ZXIlMjBiYWd8ZW58MHx8fHwxNzU3Njk1MzcxfDA&ixlib-rb-4.1.0&q=80&w=1080",
       "imageHint": "fertilizer bag",
       "owner": {
         "id": "owner-8",
