@@ -34,7 +34,7 @@ import { useToast } from '@/hooks/use-toast';
 import { generateSuggestions } from '@/app/actions';
 import type { RentalItem } from '@/lib/placeholder-images';
 import type { BargainingSuggestionOutput } from '@/ai/flows/bargaining-suggestions';
-import { Loader2, Sparkles, Lightbulb } from 'lucide-react';
+import { Loader2, Sparkles, Lightbulb, ShoppingCart } from 'lucide-react';
 import Link from 'next/link';
 import { Alert, AlertDescription, AlertTitle } from '@/components/ui/alert';
 
@@ -187,7 +187,8 @@ export default function BargainForm({ item }: { item: RentalItem }) {
               </div>
               <Button asChild className="mt-4 w-full">
                 <Link href={`/book/${item.id}?price=${suggestion.suggestedPrice.toFixed(2)}`}>
-                  Proceed to Book
+                  <ShoppingCart className="mr-2 h-4 w-4" />
+                  Confirm Booking
                 </Link>
               </Button>
             </AlertDescription>
