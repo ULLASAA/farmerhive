@@ -25,11 +25,11 @@ export default function Home() {
       <main className="flex-1">
         <section className="relative h-[calc(100vh-3.5rem)] w-full">
           <Image
-            src="https://images.unsplash.com/photo-1437419764061-2473afe69fc2?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw1fHx3aGVhdCUyMGZpZWxkfGVufDB8fHx8MTc1NzkzMTg4OHww&ixlib=rb-4.1.0&q=80&w=1920"
-            alt="Crop field"
+            src="https://images.unsplash.com/photo-1560493676-04071c5f467b?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxfHxjYW5vbGElMjBmaWVsZHxlbnwwfHx8fDE3NTgwMjU0Njd8MA&ixlib=rb-4.1.0&q=80&w=1920"
+            alt="Agricultural field"
             fill
             className="object-cover"
-            data-ai-hint="crop field"
+            data-ai-hint="cinematic field"
           />
           <div className="absolute inset-0 bg-black/50" />
           <div className="relative z-10 flex h-full flex-col items-center justify-center text-center text-white">
