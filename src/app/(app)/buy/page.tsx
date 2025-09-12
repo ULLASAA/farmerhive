@@ -17,21 +17,28 @@ import {
   SelectItem,
   SelectTrigger,
   SelectValue,
+  SelectGroup,
+  SelectLabel,
 } from '@/components/ui/select';
 import { Badge } from '@/components/ui/badge';
-import { rentalItems, categories, type RentalItem } from '@/lib/placeholder-images';
+import { rentalItems, categories, buyableCategories as buyableCategoryNames, type RentalItem } from '@/lib/placeholder-images';
 import { Button } from '@/components/ui/button';
 import { ShoppingCart } from 'lucide-react';
-
-const buyableCategories = ['seeds', 'pesticides', 'fertilizers'];
 
 export default function BuyPage() {
   const [filter, setFilter] = useState('all');
 
-  const buyableItems = rentalItems.filter(item => buyableCategories.includes(item.category));
+  const buyableItems = rentalItems.filter(item => buyableCategoryNames.includes(item.category));
+  
+  const buyableCategories = categories.filter(c => buyableCategoryNames.includes(c.name));
 
   const filteredItems = buyableItems.filter(
-    (item) => filter === 'all' || item.category === filter
+    (item) => {
+      if (filter === 'all') return true;
+      const [category, subcategory] = filter.split(':');
+      if (!subcategory) return item.category === category;
+      return item.category === category && item.subcategory === subcategory;
+    }
   );
 
   return (
@@ -40,15 +47,21 @@ export default function BuyPage() {
         <h1 className="text-3xl font-bold tracking-tight">Available for Purchase</h1>
         <div className="w-full md:w-auto">
           <Select onValueChange={setFilter} defaultValue="all">
-            <SelectTrigger className="w-full md:w-[180px]">
+            <SelectTrigger className="w-full md:w-[220px]">
               <SelectValue placeholder="Filter by category" />
             </SelectTrigger>
             <SelectContent>
               <SelectItem value="all">All Categories</SelectItem>
               {buyableCategories.map((category) => (
-                <SelectItem key={category} value={category} className="capitalize">
-                  {category}
-                </SelectItem>
+                <SelectGroup key={category.name}>
+                  <SelectLabel className="capitalize">{category.name}</SelectLabel>
+                  <SelectItem value={category.name} className="font-bold capitalize pl-8">All {category.name}</SelectItem>
+                  {category.subcategories?.map(sub => (
+                    <SelectItem key={`${category.name}:${sub}`} value={`${category.name}:${sub}`} className="capitalize pl-8">
+                      {sub}
+                    </SelectItem>
+                  ))}
+                </SelectGroup>
               ))}
             </SelectContent>
           </Select>
@@ -75,9 +88,10 @@ export default function BuyPage() {
             <CardContent className="flex-grow p-4">
               <div className="mb-2 flex items-center justify-between">
                 <CardTitle className="text-lg">{item.name}</CardTitle>
-                <Badge variant="secondary" className="capitalize">{item.category}</Badge>
+                 <Badge variant="secondary" className="capitalize">{item.category}</Badge>
               </div>
-              <CardDescription className="line-clamp-3 text-sm">
+              {item.subcategory && <Badge variant="secondary" className="capitalize ml-1">{item.subcategory}</Badge>}
+              <CardDescription className="line-clamp-3 text-sm mt-2">
                 {item.description}
               </CardDescription>
             </CardContent>

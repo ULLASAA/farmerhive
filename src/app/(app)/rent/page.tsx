@@ -17,6 +17,8 @@ import {
   SelectItem,
   SelectTrigger,
   SelectValue,
+  SelectGroup,
+  SelectLabel,
 } from '@/components/ui/select';
 import { Badge } from '@/components/ui/badge';
 import { rentalItems, categories, type RentalItem } from '@/lib/placeholder-images';
@@ -27,7 +29,12 @@ export default function RentPage() {
   const [filter, setFilter] = useState('all');
 
   const filteredItems = rentalItems.filter(
-    (item) => filter === 'all' || item.category === filter
+    (item) => {
+      if (filter === 'all') return true;
+      const [category, subcategory] = filter.split(':');
+      if (!subcategory) return item.category === category;
+      return item.category === category && item.subcategory === subcategory;
+    }
   );
 
   return (
@@ -36,16 +43,22 @@ export default function RentPage() {
         <h1 className="text-3xl font-bold tracking-tight">Available for Rent</h1>
         <div className="flex items-center gap-2">
             <Select onValueChange={setFilter} defaultValue="all">
-                <SelectTrigger className="w-full md:w-[180px]">
+                <SelectTrigger className="w-full md:w-[220px]">
                 <SelectValue placeholder="Filter by category" />
                 </SelectTrigger>
                 <SelectContent>
-                <SelectItem value="all">All Categories</SelectItem>
-                {categories.map((category) => (
-                    <SelectItem key={category} value={category} className="capitalize">
-                    {category}
-                    </SelectItem>
-                ))}
+                  <SelectItem value="all">All Categories</SelectItem>
+                  {categories.map((category) => (
+                    <SelectGroup key={category.name}>
+                      <SelectLabel className="capitalize">{category.name}</SelectLabel>
+                       <SelectItem value={category.name} className="font-bold capitalize pl-8">All {category.name}</SelectItem>
+                      {category.subcategories?.map(sub => (
+                        <SelectItem key={`${category.name}:${sub}`} value={`${category.name}:${sub}`} className="capitalize pl-8">
+                          {sub}
+                        </SelectItem>
+                      ))}
+                    </SelectGroup>
+                  ))}
                 </SelectContent>
             </Select>
              <Button asChild>
@@ -80,6 +93,7 @@ export default function RentPage() {
                 <Badge variant="outline" className="ml-2 shrink-0">{item.condition}</Badge>
               </div>
                <Badge variant="secondary" className="capitalize">{item.category}</Badge>
+               {item.subcategory && <Badge variant="secondary" className="capitalize ml-1">{item.subcategory}</Badge>}
               <CardDescription className="line-clamp-3 text-sm mt-2">
                 {item.description}
               </CardDescription>

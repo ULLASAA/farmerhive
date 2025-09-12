@@ -5,6 +5,7 @@ export type RentalItem = {
   name: string;
   description: string;
   category: 'tools' | 'seeds' | 'pesticides' | 'fertilizers' | 'other';
+  subcategory?: string;
   price: number;
   condition: 'New' | 'Excellent' | 'Good' | 'Used';
   imageUrl: string;
@@ -13,10 +14,32 @@ export type RentalItem = {
 
 export const rentalItems: RentalItem[] = data.rentalItems;
 
-export const categories: RentalItem['category'][] = [
-  'tools',
-  'seeds',
-  'pesticides',
-  'fertilizers',
-  'other',
+export const categories: {
+  name: RentalItem['category'];
+  subcategories?: string[];
+}[] = [
+  {
+    name: 'tools',
+    subcategories: [
+      'tractors',
+      'gardening tools',
+      'spraying equipment',
+      'agricultural machinery',
+    ],
+  },
+  {
+    name: 'seeds',
+    subcategories: ['vegetable', 'fruit', 'grain'],
+  },
+  {
+    name: 'pesticides',
+    subcategories: ['herbicide', 'insecticide', 'fungicide'],
+  },
+  {
+    name: 'fertilizers',
+    subcategories: ['nitrogen', 'phosphate', 'potassium'],
+  },
+  { name: 'other' },
 ];
+
+export const buyableCategories = ['seeds', 'pesticides', 'fertilizers'];
