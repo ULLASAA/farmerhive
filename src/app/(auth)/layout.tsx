@@ -13,7 +13,7 @@ export default function AuthLayout({
           <Link href="/" className="flex items-center space-x-2 text-primary">
             <Icons.logo className="h-8 w-8" />
             <span className="text-2xl font-bold text-foreground">
-              FarmConnect
+              farmerhive
             </span>
           </Link>
         </div>

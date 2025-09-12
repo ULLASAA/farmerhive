@@ -49,7 +49,7 @@ export default function RegisterPage() {
     console.log(values);
     toast({
       title: 'Registration Successful',
-      description: 'Your account has been created. Welcome to FarmConnect!',
+      description: 'Your account has been created. Welcome to farmerhive!',
     });
     router.push('/rent');
   }
@@ -58,7 +58,7 @@ export default function RegisterPage() {
     <Card>
       <CardHeader>
         <CardTitle>Register</CardTitle>
-        <CardDescription>Create your FarmConnect account to get started.</CardDescription>
+        <CardDescription>Create your farmerhive account to get started.</CardDescription>
       </CardHeader>
       <Form {...form}>
         <form onSubmit={form.handleSubmit(onSubmit)}>
@@ -119,5 +119,3 @@ export default function RegisterPage() {
     </Card>
   );
 }
-
-    

@@ -33,7 +33,7 @@ export default function AppLayout({ children }: { children: React.ReactNode }) {
           <SidebarHeader>
             <Link href="/rent" className="flex items-center gap-2">
                 <Icons.logo className="size-7 text-primary" />
-                <span className="text-lg font-semibold">FarmConnect</span>
+                <span className="text-lg font-semibold">farmerhive</span>
             </Link>
           </SidebarHeader>
           <SidebarContent>

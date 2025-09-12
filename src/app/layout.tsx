@@ -3,7 +3,7 @@ import './globals.css';
 import { Toaster } from '@/components/ui/toaster';
 
 export const metadata: Metadata = {
-  title: 'FarmConnect',
+  title: 'farmerhive',
   description:
     'A farmer to farmer interaction about renting of tools and other needs.',
 };

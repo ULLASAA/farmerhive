@@ -26,7 +26,7 @@ export function SiteHeader() {
           <Link href="/rent" className="mr-6 flex items-center space-x-2">
             <Icons.logo className="h-6 w-6 text-primary" />
             <span className="hidden font-bold sm:inline-block">
-              FarmConnect
+              farmerhive
             </span>
           </Link>
         </div>
@@ -81,5 +81,3 @@ export function SiteHeader() {
     </header>
   );
 }
-
-    
