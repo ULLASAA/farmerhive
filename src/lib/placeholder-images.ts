@@ -7,6 +7,7 @@ export type RentalItem = {
   category: 'tools' | 'seeds' | 'pesticides' | 'fertilizers' | 'other';
   subcategory?: string;
   price: number;
+  unit: 'day' | 'hour' | 'bag' | 'container';
   condition: 'New' | 'Excellent' | 'Good' | 'Used';
   imageUrl: string;
   imageHint: string;

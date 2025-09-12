@@ -6,7 +6,8 @@
       "description": "A powerful tractor for heavy-duty farm work. Comes with multiple attachments.",
       "category": "tools",
       "subcategory": "tractors",
-      "price": 150,
+      "price": 700,
+      "unit": "hour",
       "condition": "Excellent",
       "imageUrl": "https://images.unsplash.com/photo-1619314383191-3d75d5e26a7f?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxfHx0cmFjdG9yJTIwaW1hZ2V8ZW58MHx8fHwxNzU3Njk0MTM3fDA&ixlib=rb-4.1.0&q=80&w=1080",
       "imageHint": "farm tractor"
@@ -18,6 +19,7 @@
       "category": "tools",
       "subcategory": "agricultural machinery",
       "price": 300,
+      "unit": "day",
       "condition": "Good",
       "imageUrl": "https://picsum.photos/seed/harvester/600/400",
       "imageHint": "combine harvester"
@@ -29,6 +31,7 @@
       "category": "seeds",
       "subcategory": "grain",
       "price": 25,
+      "unit": "bag",
       "condition": "New",
       "imageUrl": "https://picsum.photos/seed/seeds/600/400",
       "imageHint": "wheat seeds"
@@ -40,6 +43,7 @@
       "category": "pesticides",
       "subcategory": "herbicide",
       "price": 50,
+      "unit": "container",
       "condition": "New",
       "imageUrl": "https://picsum.photos/seed/pesticide/600/400",
       "imageHint": "spraying crops"
@@ -51,6 +55,7 @@
       "category": "fertilizers",
       "subcategory": "nitrogen",
       "price": 40,
+      "unit": "bag",
       "condition": "New",
       "imageUrl": "https://picsum.photos/seed/fertilizer/600/400",
       "imageHint": "fertilizer bags"
@@ -62,6 +67,7 @@
       "category": "tools",
       "subcategory": "agricultural machinery",
       "price": 75,
+      "unit": "day",
       "condition": "Used",
       "imageUrl": "https://picsum.photos/seed/plow/600/400",
       "imageHint": "farm plow"
@@ -73,6 +79,7 @@
       "category": "seeds",
       "subcategory": "grain",
       "price": 30,
+      "unit": "bag",
       "condition": "New",
       "imageUrl": "https://picsum.photos/seed/corn/600/400",
       "imageHint": "corn seeds"
@@ -84,6 +91,7 @@
       "category": "tools",
       "subcategory": "spraying equipment",
       "price": 60,
+      "unit": "day",
       "condition": "Good",
       "imageUrl": "https://picsum.photos/seed/sprinkler/600/400",
       "imageHint": "irrigation sprinkler"

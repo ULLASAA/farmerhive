@@ -126,7 +126,7 @@ export default function BargainForm({ item }: { item: RentalItem }) {
               name="price"
               render={({ field }) => (
                 <FormItem>
-                  <FormLabel>Your Offered Price (Rs/day)</FormLabel>
+                  <FormLabel>Your Offered Price (Rs/{item.unit})</FormLabel>
                   <FormControl>
                     <Input type="number" step="10" {...field} />
                   </FormControl>
@@ -150,11 +150,12 @@ export default function BargainForm({ item }: { item: RentalItem }) {
                       </SelectTrigger>
                     </FormControl>
                     <SelectContent>
+                      <SelectItem value="1 hour">1 Hour</SelectItem>
+                      <SelectItem value="4 hours">4 Hours</SelectItem>
+                      <SelectItem value="8 hours">8 Hours</SelectItem>
                       <SelectItem value="1 day">1 Day</SelectItem>
                       <SelectItem value="3 days">3 Days</SelectItem>
                       <SelectItem value="1 week">1 Week</SelectItem>
-                      <SelectItem value="2 weeks">2 Weeks</SelectItem>
-                      <SelectItem value="1 month">1 Month</SelectItem>
                     </SelectContent>
                   </Select>
                   <FormMessage />
@@ -199,7 +200,7 @@ export default function BargainForm({ item }: { item: RentalItem }) {
                 <AlertTitle>AI Bargaining Assistant</AlertTitle>
                 <AlertDescription className="space-y-2">
                   <p>
-                    <strong>Suggested Price:</strong> Rs {suggestion.suggestedPrice.toFixed(2)} / day
+                    <strong>Suggested Price:</strong> Rs {suggestion.suggestedPrice.toFixed(2)} / {item.unit}
                   </p>
                   <p>
                     <strong>Suggested Terms:</strong> {suggestion.suggestedTerms}

@@ -88,7 +88,7 @@ export default function BookPage({ params }: { params: { id: string } }) {
                 <p className="text-sm font-medium text-muted-foreground">Final Price</p>
                 <p className="text-3xl font-bold">
                   Rs {finalPrice.toFixed(2)}{' '}
-                  <span className="text-base font-normal">/ day</span>
+                  <span className="text-base font-normal">/ {item.unit}</span>
                 </p>
               </div>
 
