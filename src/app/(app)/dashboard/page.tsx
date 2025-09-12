@@ -1,11 +1,20 @@
-
 'use client';
 
 import { Bar, BarChart, CartesianGrid, XAxis, YAxis, Tooltip, Legend, ResponsiveContainer } from 'recharts';
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from '@/components/ui/card';
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from '@/components/ui/table';
 import { rentalItems, buyableCategories } from '@/lib/placeholder-images';
-import { IndianRupee, Tractor, ShoppingBag, Percent, Users } from 'lucide-react';
+import { IndianRupee, Tractor, ShoppingBag, Percent, Users, AlertTriangle, MapPin, Phone } from 'lucide-react';
+import { Button } from '@/components/ui/button';
+import {
+  Dialog,
+  DialogContent,
+  DialogDescription,
+  DialogHeader,
+  DialogTitle,
+  DialogTrigger,
+} from '@/components/ui/dialog';
+import { useState } from 'react';
 
 // --- Mock Data Simulation ---
 // In a real app, this would come from a database of completed transactions.
@@ -33,6 +42,21 @@ const transactions = rentalItems
     };
   });
 
+const overdueItems = rentalItems
+  .filter((item, index) => item.availability.status === 'Rented Out' && index % 3 === 0)
+  .map((item, index) => ({
+    ...item,
+    renter: { name: index % 2 === 0 ? 'Vijay Singh' : 'Anita Sharma' },
+    dueDate: new Date(Date.now() - (index + 2) * 24 * 60 * 60 * 1000), // Due 2-4 days ago
+    penalty: (index + 1) * 50,
+    lastLocation: { lat: 30.89 + (Math.random() - 0.5) * 0.1, lng: 75.83 + (Math.random() - 0.5) * 0.1 },
+  }));
+
+const daysOverdue = (dueDate: Date) => {
+    const diff = new Date().getTime() - dueDate.getTime();
+    return Math.max(0, Math.floor(diff / (1000 * 60 * 60 * 24)));
+}
+
 // --- Calculations ---
 const totalRevenue = transactions.reduce((acc, t) => acc + t.transactionPrice, 0);
 const totalOwnerPayouts = transactions.reduce((acc, t) => acc + t.ownerPayout, 0);
@@ -58,12 +82,16 @@ const chartData = Object.entries(revenueByCategory).map(([name, profit]) => ({
 
 // --- Component ---
 export default function DashboardPage() {
+  const [selectedLocation, setSelectedLocation] = useState<{lat: number, lng: number} | null>(null);
+
+  const mapEmbedUrl = (lat: number, lng: number) => `https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d1000!2d${lng}!3d${lat}!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e0!3m2!1sen!2sin!4v1678886400000`;
+
   return (
     <div className="container mx-auto px-4 py-8">
       <h1 className="mb-8 text-3xl font-bold tracking-tight">Company Dashboard</h1>
       
       {/* Key Metrics */}
-      <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 mb-8">
+      <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-6 mb-8">
         <Card>
           <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
             <CardTitle className="text-sm font-medium">Total Company Profit</CardTitle>
@@ -114,7 +142,90 @@ export default function DashboardPage() {
             <p className="text-xs text-muted-foreground">Percentage of revenue paid out</p>
           </CardContent>
         </Card>
+        <Card className="border-destructive/50 text-destructive">
+          <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
+            <CardTitle className="text-sm font-medium">Overdue Rentals</CardTitle>
+            <AlertTriangle className="h-4 w-4" />
+          </CardHeader>
+          <CardContent>
+            <div className="text-2xl font-bold">{overdueItems.length}</div>
+            <p className="text-xs text-muted-foreground">Items not returned on time</p>
+          </CardContent>
+        </Card>
       </div>
+
+       {/* Security Section */}
+      <Card className="mb-8 border-amber-500/50 bg-amber-50/50 dark:bg-amber-900/10">
+        <CardHeader>
+          <CardTitle className="flex items-center gap-2 text-amber-700 dark:text-amber-500">
+            <AlertTriangle />
+            Security Monitoring
+          </CardTitle>
+          <CardDescription>
+            Tools that are not returned on time are flagged for review. The company can monitor the location of these tools to ensure recovery.
+          </CardDescription>
+        </CardHeader>
+        <CardContent>
+            <h3 className="font-semibold mb-4">Overdue Items ({overdueItems.length})</h3>
+             <Dialog onOpenChange={() => setSelectedLocation(null)}>
+                <Table>
+                  <TableHeader>
+                    <TableRow>
+                      <TableHead>Item</TableHead>
+                      <TableHead>Renter</TableHead>
+                      <TableHead>Days Overdue</TableHead>
+                      <TableHead className="text-right">Penalty</TableHead>
+                      <TableHead className="text-right">Action</TableHead>
+                    </TableRow>
+                  </TableHeader>
+                  <TableBody>
+                    {overdueItems.map((item) => (
+                      <TableRow key={item.id} className="bg-background">
+                        <TableCell className="font-medium">{item.name}</TableCell>
+                        <TableCell>{item.renter.name}</TableCell>
+                        <TableCell>{daysOverdue(item.dueDate)}</TableCell>
+                        <TableCell className="text-right text-destructive font-semibold">Rs {item.penalty.toFixed(2)}</TableCell>
+                         <TableCell className="text-right">
+                          <DialogTrigger asChild>
+                            <Button variant="outline" size="sm" onClick={() => setSelectedLocation(item.lastLocation)}>
+                              <MapPin className="mr-2 h-4 w-4" />
+                              Track
+                            </Button>
+                          </DialogTrigger>
+                        </TableCell>
+                      </TableRow>
+                    ))}
+                  </TableBody>
+                </Table>
+                 <DialogContent className="max-w-2xl">
+                  <DialogHeader>
+                    <DialogTitle>Live Tool Location</DialogTitle>
+                    <DialogDescription>
+                      Last known location of the tool. This is a security feature for internal monitoring only.
+                    </DialogDescription>
+                  </DialogHeader>
+                  {selectedLocation && (
+                     <div className="aspect-video w-full overflow-hidden rounded-lg border">
+                        <iframe
+                            src={mapEmbedUrl(selectedLocation.lat, selectedLocation.lng)}
+                            width="100%"
+                            height="100%"
+                            style={{ border: 0 }}
+                            allowFullScreen={false}
+                            loading="lazy"
+                            referrerPolicy="no-referrer-when-downgrade"
+                        ></iframe>
+                    </div>
+                  )}
+                 </DialogContent>
+             </Dialog>
+              <div className="mt-6 rounded-md border border-dashed border-destructive/80 p-4 bg-destructive/10 text-destructive-foreground/90 text-sm">
+                <h4 className="font-bold flex items-center gap-2"><Phone /> Owner Helpline</h4>
+                <p>If a tool owner has not received their item back after the due date, they should contact the <span className="font-semibold">farmerhive</span> helpline at <a href="tel:1800-200-5555" className="font-bold underline">1800-200-5555</a>. Our team will initiate the recovery process.</p>
+            </div>
+        </CardContent>
+      </Card>
+
 
       <div className="grid gap-8 lg:grid-cols-5">
         {/* Chart */}
