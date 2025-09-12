@@ -34,9 +34,8 @@ import { useToast } from '@/hooks/use-toast';
 import { generateSuggestions } from '@/app/actions';
 import type { RentalItem } from '@/lib/placeholder-images';
 import type { BargainingSuggestionOutput } from '@/ai/flows/bargaining-suggestions';
-import { Loader2, Sparkles, Lightbulb, ShoppingCart, CreditCard } from 'lucide-react';
+import { Loader2, Sparkles, Lightbulb, CreditCard } from 'lucide-react';
 import { Alert, AlertDescription, AlertTitle } from '@/components/ui/alert';
-import { RadioGroup, RadioGroupItem } from '@/components/ui/radio-group';
 import { useRouter } from 'next/navigation';
 
 const bargainFormSchema = z.object({
@@ -49,6 +48,8 @@ const bargainFormSchema = z.object({
 export default function BargainForm({ item }: { item: RentalItem }) {
   const { toast } = useToast();
   const [isLoading, setIsLoading] = useState(false);
+  const [isGenerating, setIsGenerating] = useState(false);
+  const [suggestion, setSuggestion] = useState<BargainingSuggestionOutput | null>(null);
   const router = useRouter();
 
   const form = useForm<z.infer<typeof bargainFormSchema>>({
@@ -59,6 +60,43 @@ export default function BargainForm({ item }: { item: RentalItem }) {
       delivery: 'pickup',
     },
   });
+  
+  const { watch } = form;
+  const watchedValues = watch();
+
+  async function handleGenerateSuggestion() {
+    setIsGenerating(true);
+    setSuggestion(null);
+    try {
+      const result = await generateSuggestions({
+        item: item.name,
+        price: watchedValues.price,
+        condition: item.condition,
+        duration: watchedValues.duration,
+        delivery: watchedValues.delivery,
+        marketConditions: 'The local market is competitive, with rental prices for similar items varying by 15-20% based on condition and availability. Renters are currently looking for flexible duration options.'
+      });
+
+      if (result.success && result.data) {
+        setSuggestion(result.data);
+      } else {
+        toast({
+          variant: 'destructive',
+          title: 'Error',
+          description: result.error || 'Failed to generate suggestions.',
+        });
+      }
+    } catch (error) {
+      toast({
+        variant: 'destructive',
+        title: 'Error',
+        description: 'An unexpected error occurred.',
+      });
+    } finally {
+      setIsGenerating(false);
+    }
+  }
+
 
   async function onSubmit(values: z.infer<typeof bargainFormSchema>) {
     setIsLoading(true);
@@ -71,12 +109,12 @@ export default function BargainForm({ item }: { item: RentalItem }) {
       <CardHeader>
         <CardTitle>Make Your Offer</CardTitle>
         <CardDescription>
-          Submit your desired terms to proceed with the booking.
+          Adjust the terms below and either get an AI suggestion or proceed to book.
         </CardDescription>
       </CardHeader>
       <Form {...form}>
         <form onSubmit={form.handleSubmit(onSubmit)}>
-          <CardContent className="space-y-4">
+          <CardContent className="space-y-6">
             <FormField
               control={form.control}
               name="price"
@@ -141,9 +179,51 @@ export default function BargainForm({ item }: { item: RentalItem }) {
                 </FormItem>
               )}
             />
+
+            {isGenerating && (
+              <div className="flex items-center justify-center rounded-md border p-4">
+                  <Loader2 className="mr-2 h-5 w-5 animate-spin" />
+                  <span>Generating AI Suggestions...</span>
+              </div>
+            )}
+
+            {suggestion && (
+              <Alert>
+                <Sparkles className="h-4 w-4" />
+                <AlertTitle>AI Bargaining Assistant</AlertTitle>
+                <AlertDescription className="space-y-2">
+                  <p>
+                    <strong>Suggested Price:</strong> Rs {suggestion.suggestedPrice.toFixed(2)} / day
+                  </p>
+                  <p>
+                    <strong>Suggested Terms:</strong> {suggestion.suggestedTerms}
+                  </p>
+                   <p className="text-xs text-muted-foreground pt-2">
+                    <Lightbulb className="mr-1 inline-block h-3 w-3" />
+                    <strong>Reasoning:</strong> {suggestion.reasoning}
+                  </p>
+                </AlertDescription>
+              </Alert>
+            )}
+
           </CardContent>
-          <CardFooter className="flex-col items-stretch">
-            <Button type="submit" disabled={isLoading} className="w-full">
+          <CardFooter className="flex-col items-stretch gap-4">
+             <Button
+                type="button"
+                variant="outline"
+                onClick={handleGenerateSuggestion}
+                disabled={isGenerating}
+                className="w-full"
+              >
+                {isGenerating ? (
+                  <Loader2 className="mr-2 h-4 w-4 animate-spin" />
+                ) : (
+                  <Sparkles className="mr-2 h-4 w-4" />
+                )}
+                Get AI Suggestion
+            </Button>
+
+            <Button type="submit" disabled={isLoading || isGenerating} className="w-full">
               {isLoading ? (
                 <Loader2 className="mr-2 h-4 w-4 animate-spin" />
               ) : (
