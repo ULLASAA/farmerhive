@@ -4,23 +4,16 @@
  * @fileOverview Provides a high-level analysis of a region's agricultural profile for a given season.
  *
  * - getRegionalAnalysis - A function that generates a summary of crop cycles and climate.
- * - RegionalAnalysisInput - The input type for the getRegionalAnalysis function.
- * - RegionalAnalysisOutput - The return type for the getRegionalAnalysis function.
  */
 
 import { ai } from '@/ai/genkit';
-import { z } from 'genkit';
+import {
+  RegionalAnalysisInputSchema,
+  RegionalAnalysisOutputSchema,
+  type RegionalAnalysisInput,
+  type RegionalAnalysisOutput
+} from '@/ai/schemas/regional-analysis';
 
-export const RegionalAnalysisInputSchema = z.object({
-  region: z.string().describe('The agricultural region, e.g., Punjab.'),
-  season: z.enum(['Kharif (Monsoon)', 'Rabi (Winter)', 'Zaid (Summer)']).describe('The current farming season.'),
-});
-export type RegionalAnalysisInput = z.infer<typeof RegionalAnalysisInputSchema>;
-
-export const RegionalAnalysisOutputSchema = z.object({
-  analysis: z.string().describe('A 2-3 sentence summary of the typical crop cycles, climate, and their impact on tool demand for the specified region and season.'),
-});
-export type RegionalAnalysisOutput = z.infer<typeof RegionalAnalysisOutputSchema>;
 
 export async function getRegionalAnalysis(input: RegionalAnalysisInput): Promise<RegionalAnalysisOutput> {
   return regionalAnalysisFlow(input);

@@ -8,10 +8,9 @@ import {
   getPredictiveDemand,
   type PredictiveDemandInput,
 } from '@/ai/flows/predictive-tool-demand';
-import {
-  getRegionalAnalysis,
-  type RegionalAnalysisInput,
-} from '@/ai/flows/regional-analysis';
+import { getRegionalAnalysis } from '@/ai/flows/regional-analysis';
+import type { RegionalAnalysisInput } from '@/ai/schemas/regional-analysis';
+
 
 export async function generateSuggestions(input: BargainingSuggestionInput) {
   try {
