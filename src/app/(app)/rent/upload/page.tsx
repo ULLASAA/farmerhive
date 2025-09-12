@@ -40,7 +40,7 @@ import { ArrowLeft, Upload } from 'lucide-react';
 const uploadFormSchema = z.object({
   name: z.string().min(3, 'Tool name must be at least 3 characters.'),
   description: z.string().min(10, 'Description must be at least 10 characters.'),
-  category: z.enum(categories),
+  category: z.string().min(1, "Please select a category."),
   price: z.coerce.number().positive('Price must be a positive number.'),
   condition: z.enum(['New', 'Excellent', 'Good', 'Used']),
   image: z.any().refine((files) => files?.length === 1, 'Image is required.'),
@@ -176,7 +176,7 @@ export default function UploadToolPage() {
                         </FormControl>
                         <SelectContent>
                           {categories.map(cat => (
-                             <SelectItem key={cat} value={cat} className="capitalize">{cat}</SelectItem>
+                             <SelectItem key={cat.name} value={cat.name} className="capitalize">{cat.name}</SelectItem>
                           ))}
                         </SelectContent>
                       </Select>
