@@ -57,7 +57,7 @@
       "price": 70,
       "unit": "day",
       "condition": "Good",
-      "imageUrl": "https://picsum.photos/seed/plougher/600/400",
+      "imageUrl": "https://images.unsplash.com/photo-1692264204894-384f506778a8?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxOHx8cGxvdWdoZXIlMjB0b29sJTIwYWdyaWN1bHR1cmV8ZW58MHx8fHwxNzU3Njk3MDEyfDA&ixlib=rb-4.1.0&q=80&w=1080",
       "imageHint": "farm plough"
     }
   ]
