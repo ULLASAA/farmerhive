@@ -43,4 +43,4 @@ export const categories: {
   { name: 'other' },
 ];
 
-export const buyableCategories = ['seeds', 'pesticides', 'fertilizers'];
+export const buyableCategories: RentalItem['category'][] = ['seeds', 'pesticides', 'fertilizers'];

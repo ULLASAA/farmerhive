@@ -71,6 +71,54 @@
       "condition": "New",
       "imageUrl": "https://images.unsplash.com/photo-1591806182241-a6e4bdd59735?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw5fHxpcnJpZ2F0aW9uJTIwc3ByYW5rbGVyfGVufDB8fHx8MTc1NzY5NzU2MXww&ixlib=rb-4.1.0&q=80&w=1080",
       "imageHint": "irrigation sprinkler"
+    },
+    {
+      "id": "pesticide-01",
+      "name": "Natural Pesticide",
+      "description": "Eco-friendly pesticide to protect your crops from common pests. Safe for organic farming.",
+      "category": "pesticides",
+      "subcategory": "natural",
+      "price": 550,
+      "unit": "container",
+      "condition": "New",
+      "imageUrl": "https://picsum.photos/seed/natural-pesticide/600/400",
+      "imageHint": "pesticide bottle"
+    },
+    {
+      "id": "fertilizer-01",
+      "name": "Nitrogen Fertilizer",
+      "description": "High-quality nitrogen fertilizer to boost plant growth and yield.",
+      "category": "fertilizers",
+      "subcategory": "nitrogen-based",
+      "price": 1200,
+      "unit": "bag",
+      "condition": "New",
+      "imageUrl": "https://picsum.photos/seed/nitrogen-fertilizer/600/400",
+      "imageHint": "fertilizer bag"
+    },
+    {
+      "id": "seeds-01",
+      "name": "Corn Seeds",
+      "description": "Premium quality corn seeds for a high-yield harvest. Resistant to common diseases.",
+      "category": "seeds",
+      "subcategory": "grains",
+      "price": 300,
+      "unit": "bag",
+      "condition": "New",
+      "imageUrl": "https://picsum.photos/seed/corn-seeds/600/400",
+      "imageHint": "corn seeds"
+    },
+    {
+      "id": "seeds-02",
+      "name": "Organic Wheat Seeds",
+      "description": "Certified organic wheat seeds, perfect for sustainable farming practices.",
+      "category": "seeds",
+      "subcategory": "grains",
+      "price": 350,
+      "unit": "bag",
+      "condition": "New",
+      "imageUrl": "https://picsum.photos/seed/wheat-seeds/600/400",
+      "imageHint": "wheat seeds"
     }
   ]
 }

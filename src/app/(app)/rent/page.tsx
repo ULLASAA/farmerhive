@@ -21,14 +21,17 @@ import {
   SelectLabel,
 } from '@/components/ui/select';
 import { Badge } from '@/components/ui/badge';
-import { rentalItems, categories, type RentalItem } from '@/lib/placeholder-images';
+import { rentalItems, categories as allCategories, type RentalItem } from '@/lib/placeholder-images';
 import { Button } from '@/components/ui/button';
 import { PlusCircle } from 'lucide-react';
 
 export default function RentPage() {
   const [filter, setFilter] = useState('all');
 
-  const filteredItems = rentalItems.filter(
+  const categories = allCategories.filter(c => c.name === 'tools' || c.name === 'other');
+  const onlyRentalItems = rentalItems.filter(item => item.category === 'tools' || item.category === 'other');
+
+  const filteredItems = onlyRentalItems.filter(
     (item) => {
       if (filter === 'all') return true;
       const [category, subcategory] = filter.split(':');
