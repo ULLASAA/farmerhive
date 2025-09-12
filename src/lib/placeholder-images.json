@@ -71,54 +71,6 @@
       "condition": "New",
       "imageUrl": "https://images.unsplash.com/photo-1591806182241-a6e4bdd59735?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw5fHxpcnJpZ2F0aW9uJTIwc3ByYW5rbGVyfGVufDB8fHx8MTc1NzY5NzU2MXww&ixlib=rb-4.1.0&q=80&w=1080",
       "imageHint": "irrigation sprinkler"
-    },
-    {
-      "id": "3",
-      "name": "Organic Wheat Seeds",
-      "description": "High-quality organic seeds for a healthy crop. Certified and tested for germination.",
-      "category": "seeds",
-      "subcategory": "grains",
-      "price": 250,
-      "unit": "bag",
-      "condition": "New",
-      "imageUrl": "https://images.unsplash.com/photo-1665603425329-ce74d6d88550?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxMHx8b3JnYW5pYyUyMHdoZWF0JTIwc2VlZHxlbnwwfHx8fDE3NTc2OTUxMzl8MA&ixlib=rb-4.1.0&q=80&w=1080",
-      "imageHint": "wheat seeds"
-    },
-    {
-      "id": "4",
-      "name": "Corn Seeds",
-      "description": "Premium corn seeds for a high-yield harvest. Suitable for various climates.",
-      "category": "seeds",
-      "subcategory": "vegetables",
-      "price": 200,
-      "unit": "bag",
-      "condition": "New",
-      "imageUrl": "https://picsum.photos/seed/corn-seeds/600/400",
-      "imageHint": "corn seeds"
-    },
-    {
-      "id": "5",
-      "name": "Pesticide",
-      "description": "A natural and effective pesticide to protect your crops from common pests.",
-      "category": "pesticides",
-      "subcategory": "natural",
-      "price": 400,
-      "unit": "bag",
-      "condition": "New",
-      "imageUrl": "https://images.unsplash.com/photo-1653543362966-a97e081f3086?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxOXx8JTIwcGVzdGljaWRlJTIwYmFnfGVufDB8fHx8MTc1NzY5NTI5NXww&ixlib=rb-4.1.0&q=80&w=1080",
-      "imageHint": "spraying crops"
-    },
-    {
-      "id": "7",
-      "name": "Nitrogen Fertilizer",
-      "description": "Rich nitrogen fertilizer to boost plant growth and ensure a healthy yield.",
-      "category": "fertilizers",
-      "subcategory": "nitrogen-based",
-      "price": 500,
-      "unit": "bag",
-      "condition": "New",
-      "imageUrl": "https://images.unsplash.com/photo-1661669037580-4879ceae9ea8?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw2fHxuaXRyb2dlbiUyMGZlcnRpbGl6ZXIlMjBiYWd8ZW58MHx8fHwxNzU3Njk1MzcxfDA&ixlib=rb-4.1.0&q=80&w=1080",
-      "imageHint": "fertilizer bags"
     }
   ]
 }
