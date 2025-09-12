@@ -37,11 +37,15 @@ import type { BargainingSuggestionOutput } from '@/ai/flows/bargaining-suggestio
 import { Loader2, Sparkles, Lightbulb, CreditCard } from 'lucide-react';
 import { Alert, AlertDescription, AlertTitle } from '@/components/ui/alert';
 import { useRouter } from 'next/navigation';
+import { RadioGroup, RadioGroupItem } from '@/components/ui/radio-group';
 
 const bargainFormSchema = z.object({
   price: z.coerce.number().positive('Price must be a positive number.'),
   duration: z.string().min(1, 'Please specify a duration.'),
   delivery: z.string().min(1, 'Please select a delivery option.'),
+  paymentMethod: z.enum(['card', 'cash', 'transfer'], {
+    required_error: 'You need to select a payment method.',
+  }),
 });
 
 
@@ -58,6 +62,7 @@ export default function BargainForm({ item }: { item: RentalItem }) {
       price: item.price * 0.9, // Default to 90% of listing price
       duration: '1 day',
       delivery: 'pickup',
+      paymentMethod: 'card',
     },
   });
   
@@ -222,6 +227,45 @@ export default function BargainForm({ item }: { item: RentalItem }) {
                 )}
                 Get AI Suggestion
             </Button>
+            
+            <Separator />
+            
+            <FormField
+                control={form.control}
+                name="paymentMethod"
+                render={({ field }) => (
+                  <FormItem className="space-y-3">
+                    <FormLabel>Payment Method</FormLabel>
+                    <FormControl>
+                      <RadioGroup
+                        onValueChange={field.onChange}
+                        defaultValue={field.value}
+                        className="flex flex-col space-y-1"
+                      >
+                        <FormItem className="flex items-center space-x-3 space-y-0">
+                          <FormControl>
+                            <RadioGroupItem value="card" />
+                          </FormControl>
+                          <FormLabel className="font-normal">Credit/Debit Card</FormLabel>
+                        </FormItem>
+                        <FormItem className="flex items-center space-x-3 space-y-0">
+                          <FormControl>
+                            <RadioGroupItem value="cash" />
+                          </FormControl>
+                          <FormLabel className="font-normal">Cash on Delivery</FormLabel>
+                        </FormItem>
+                        <FormItem className="flex items-center space-x-3 space-y-0">
+                          <FormControl>
+                            <RadioGroupItem value="transfer" />
+                          </FormControl>
+                          <FormLabel className="font-normal">Bank Transfer (UPI)</FormLabel>
+                        </FormItem>
+                      </RadioGroup>
+                    </FormControl>
+                    <FormMessage />
+                  </FormItem>
+                )}
+              />
 
             <Button type="submit" disabled={isLoading || isGenerating} className="w-full">
               {isLoading ? (
