@@ -141,7 +141,7 @@ function BookingForm({ item, price }: { item: RentalItem, price: number }) {
           />
           <Button type="submit" className="w-full">
             <ShoppingCart className="mr-2 h-4 w-4" />
-            Confirm & Book
+            Confirm & Rent
           </Button>
         </form>
       </Form>
@@ -299,5 +299,3 @@ export default function BargainForm({ item }: { item: RentalItem }) {
     </Card>
   );
 }
-
-    
