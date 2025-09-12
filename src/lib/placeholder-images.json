@@ -1,3 +1,84 @@
 {
-  "placeholderImages": []
+  "rentalItems": [
+    {
+      "id": "1",
+      "name": "Tractor",
+      "description": "A powerful tractor for heavy-duty farm work. Comes with multiple attachments.",
+      "category": "tools",
+      "price": 150,
+      "condition": "Excellent",
+      "imageUrl": "https://picsum.photos/seed/tractor/600/400",
+      "imageHint": "farm tractor"
+    },
+    {
+      "id": "2",
+      "name": "Combine Harvester",
+      "description": "Efficiently harvest a variety of grain crops. Maintained and serviced regularly.",
+      "category": "tools",
+      "price": 300,
+      "condition": "Good",
+      "imageUrl": "https://picsum.photos/seed/harvester/600/400",
+      "imageHint": "combine harvester"
+    },
+    {
+      "id": "3",
+      "name": "Organic Wheat Seeds",
+      "description": "High-yield, non-GMO organic wheat seeds. Suitable for all soil types. Price per 10kg bag.",
+      "category": "seeds",
+      "price": 25,
+      "condition": "New",
+      "imageUrl": "https://picsum.photos/seed/seeds/600/400",
+      "imageHint": "wheat seeds"
+    },
+    {
+      "id": "4",
+      "name": "Natural Pesticide",
+      "description": "Eco-friendly pesticide to protect your crops from common pests. Safe for organic farming. Price per 5L container.",
+      "category": "pesticides",
+      "price": 50,
+      "condition": "New",
+      "imageUrl": "https://picsum.photos/seed/pesticide/600/400",
+      "imageHint": "spraying crops"
+    },
+    {
+      "id": "5",
+      "name": "Nitrogen Fertilizer",
+      "description": "Rich nitrogen fertilizer to boost plant growth and yield. Price per 50kg bag.",
+      "category": "fertilizers",
+      "price": 40,
+      "condition": "New",
+      "imageUrl": "https://picsum.photos/seed/fertilizer/600/400",
+      "imageHint": "fertilizer bags"
+    },
+    {
+      "id": "6",
+      "name": "Plow Attachment",
+      "description": "Durable plow for tilling soil before planting. Attaches to most standard tractors.",
+      "category": "tools",
+      "price": 75,
+      "condition": "Used",
+      "imageUrl": "https://picsum.photos/seed/plow/600/400",
+      "imageHint": "farm plow"
+    },
+    {
+      "id": "7",
+      "name": "Corn Seeds",
+      "description": "High-quality corn seeds for a bountiful harvest. Resistant to common diseases. Price per 10kg bag.",
+      "category": "seeds",
+      "price": 30,
+      "condition": "New",
+      "imageUrl": "https://picsum.photos/seed/corn/600/400",
+      "imageHint": "corn seeds"
+    },
+    {
+      "id": "8",
+      "name": "Irrigation Sprinkler",
+      "description": "Automated sprinkler system for efficient field irrigation. Covers a large area.",
+      "category": "other",
+      "price": 60,
+      "condition": "Good",
+      "imageUrl": "https://picsum.photos/seed/sprinkler/600/400",
+      "imageHint": "irrigation sprinkler"
+    }
+  ]
 }

@@ -1,10 +1,22 @@
 import data from './placeholder-images.json';
 
-export type ImagePlaceholder = {
+export type RentalItem = {
   id: string;
+  name: string;
   description: string;
+  category: 'tools' | 'seeds' | 'pesticides' | 'fertilizers' | 'other';
+  price: number;
+  condition: 'New' | 'Excellent' | 'Good' | 'Used';
   imageUrl: string;
   imageHint: string;
 };
 
-export const PlaceHolderImages: ImagePlaceholder[] = data.placeholderImages;
+export const rentalItems: RentalItem[] = data.rentalItems;
+
+export const categories: RentalItem['category'][] = [
+  'tools',
+  'seeds',
+  'pesticides',
+  'fertilizers',
+  'other',
+];
