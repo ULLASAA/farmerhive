@@ -28,6 +28,18 @@ export const categories: {
       'agricultural machinery',
     ],
   },
+  {
+    name: 'seeds',
+    subcategories: ['grains', 'vegetables'],
+  },
+  {
+    name: 'pesticides',
+    subcategories: ['natural', 'chemical'],
+  },
+  {
+    name: 'fertilizers',
+    subcategories: ['nitrogen-based', 'potassium-based'],
+  },
   { name: 'other' },
 ];
 
