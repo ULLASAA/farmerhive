@@ -23,7 +23,9 @@ import {
 import { Badge } from '@/components/ui/badge';
 import { rentalItems, categories as allCategories, type RentalItem } from '@/lib/placeholder-images';
 import { Button } from '@/components/ui/button';
-import { PlusCircle } from 'lucide-react';
+import { PlusCircle, Star, CalendarDays } from 'lucide-react';
+import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar';
+import { Separator } from '@/components/ui/separator';
 
 export default function RentPage() {
   const [filter, setFilter] = useState('all');
@@ -90,24 +92,52 @@ export default function RentPage() {
                   className="object-cover"
                   data-ai-hint={item.imageHint}
                 />
+                 <Badge variant="secondary" className={`absolute right-2 top-2 ${item.availability.status === 'Available' ? 'bg-green-100 text-green-800' : 'bg-red-100 text-red-800'}`}>
+                    {item.availability.status}
+                </Badge>
               </div>
             </CardHeader>
-            <CardContent className="flex-grow p-4">
+            <CardContent className="flex-grow p-4 pb-2">
               <div className="mb-2 flex items-start justify-between">
                 <CardTitle className="text-lg">{item.name}</CardTitle>
                 <Badge variant="outline" className="ml-2 shrink-0">{item.condition}</Badge>
               </div>
-               <Badge variant="secondary" className="capitalize">{item.category}</Badge>
-               {item.subcategory && <Badge variant="secondary" className="capitalize ml-1">{item.subcategory}</Badge>}
-              <CardDescription className="line-clamp-3 text-sm mt-2">
+               <div className='flex gap-1'>
+                 <Badge variant="secondary" className="capitalize">{item.category}</Badge>
+                 {item.subcategory && <Badge variant="secondary" className="capitalize">{item.subcategory}</Badge>}
+               </div>
+              <CardDescription className="line-clamp-2 text-sm mt-2">
                 {item.description}
               </CardDescription>
+
+              <Separator className="my-3" />
+
+              <div className="flex items-center gap-2 text-sm text-muted-foreground">
+                <Avatar className="h-6 w-6">
+                  <AvatarImage src={item.owner.avatarUrl} alt={item.owner.name} />
+                  <AvatarFallback>{item.owner.name.charAt(0)}</AvatarFallback>
+                </Avatar>
+                <span>{item.owner.name}</span>
+              </div>
+               <div className="mt-2 flex items-center gap-4 text-sm">
+                <div className="flex items-center gap-1">
+                    <Star className="h-4 w-4 text-yellow-400 fill-yellow-400" />
+                    <span className="font-semibold">{item.reviews.rating}</span>
+                    <span className="text-muted-foreground">({item.reviews.count} reviews)</span>
+                </div>
+              </div>
+               {item.availability.status === 'Rented Out' && (
+                  <div className="mt-2 flex items-center gap-1 text-sm text-amber-600">
+                    <CalendarDays className="h-4 w-4" />
+                    <span>Next available: {item.availability.nextAvailable}</span>
+                  </div>
+                )}
             </CardContent>
-            <CardFooter className="flex items-center justify-between p-4 pt-0">
+            <CardFooter className="flex items-center justify-between p-4 pt-2">
                 <p className="text-lg font-semibold text-primary">
                     Rs {item.price.toFixed(2)}<span className="text-sm font-normal text-muted-foreground">/{item.unit}</span>
                 </p>
-                <Button asChild className="bg-accent text-accent-foreground hover:bg-accent/90">
+                <Button asChild className="bg-accent text-accent-foreground hover:bg-accent/90" disabled={item.availability.status !== 'Available'}>
                     <Link href={`/bargain/${item.id}`}>Details</Link>
                 </Button>
             </CardFooter>

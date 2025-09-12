@@ -1,3 +1,5 @@
+'use server';
+import type { StaticImageData } from 'next/image';
 import data from './placeholder-images.json';
 
 export type RentalItem = {
@@ -11,6 +13,18 @@ export type RentalItem = {
   condition: 'New' | 'Excellent' | 'Good' | 'Used';
   imageUrl: string;
   imageHint: string;
+  owner: {
+    name: string;
+    avatarUrl: string;
+  };
+  reviews: {
+    rating: number;
+    count: number;
+  };
+  availability: {
+    status: 'Available' | 'Rented Out';
+    nextAvailable?: string;
+  };
 };
 
 export const rentalItems: RentalItem[] = data.rentalItems;
@@ -28,7 +42,7 @@ export const categories: {
       'agricultural machinery',
     ],
   },
-  {
+   {
     name: 'seeds',
     subcategories: ['grains', 'vegetables'],
   },

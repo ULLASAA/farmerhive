@@ -23,7 +23,9 @@ import {
 import { Badge } from '@/components/ui/badge';
 import { rentalItems, categories, buyableCategories as buyableCategoryNames, type RentalItem } from '@/lib/placeholder-images';
 import { Button } from '@/components/ui/button';
-import { ShoppingCart } from 'lucide-react';
+import { ShoppingCart, Star } from 'lucide-react';
+import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar';
+import { Separator } from '@/components/ui/separator';
 
 export default function BuyPage() {
   const [filter, setFilter] = useState('all');
@@ -83,19 +85,37 @@ export default function BuyPage() {
                   className="object-cover"
                   data-ai-hint={item.imageHint}
                 />
+                 <Badge variant="secondary" className="absolute right-2 top-2 bg-green-100 text-green-800">
+                    In Stock
+                </Badge>
               </div>
             </CardHeader>
-            <CardContent className="flex-grow p-4">
-              <div className="mb-2 flex items-center justify-between">
+            <CardContent className="flex-grow p-4 pb-2">
+               <div className="mb-2 flex items-center justify-between">
                 <CardTitle className="text-lg">{item.name}</CardTitle>
                  <Badge variant="secondary" className="capitalize">{item.category}</Badge>
               </div>
-              {item.subcategory && <Badge variant="secondary" className="capitalize ml-1">{item.subcategory}</Badge>}
-              <CardDescription className="line-clamp-3 text-sm mt-2">
+              {item.subcategory && <Badge variant="secondary" className="capitalize -mt-1">{item.subcategory}</Badge>}
+              <CardDescription className="line-clamp-2 text-sm mt-2">
                 {item.description}
               </CardDescription>
+
+              <Separator className="my-3" />
+               <div className="flex items-center gap-2 text-sm text-muted-foreground">
+                <Avatar className="h-6 w-6">
+                  <AvatarImage src={item.owner.avatarUrl} alt={item.owner.name} />
+                  <AvatarFallback>{item.owner.name.charAt(0)}</AvatarFallback>
+                </Avatar>
+                <span>Sold by {item.owner.name}</span>
+              </div>
+               <div className="mt-2 flex items-center gap-1">
+                    <Star className="h-4 w-4 text-yellow-400 fill-yellow-400" />
+                    <span className="font-semibold">{item.reviews.rating}</span>
+                    <span className="text-muted-foreground text-sm">({item.reviews.count} reviews)</span>
+                </div>
+
             </CardContent>
-            <CardFooter className="flex items-center justify-between p-4 pt-0">
+            <CardFooter className="flex items-center justify-between p-4 pt-2">
                 <p className="text-lg font-semibold text-primary">
                     Rs {item.price.toFixed(2)}
                 </p>

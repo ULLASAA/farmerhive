@@ -10,7 +10,13 @@
       "unit": "hour",
       "condition": "Excellent",
       "imageUrl": "https://images.unsplash.com/photo-1619314383191-3d75d5e26a7f?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxfHx0cmFjdG9yJTIwaW1hZ2V8ZW58MHx8fHwxNzU3Njk0MTM3fDA&ixlib=rb-4.1.0&q=80&w=1080",
-      "imageHint": "farm tractor"
+      "imageHint": "farm tractor",
+      "owner": {
+        "name": "Gurpreet Singh",
+        "avatarUrl": "https://i.pravatar.cc/150?u=gurpreet"
+      },
+      "reviews": { "rating": 4.8, "count": 25 },
+      "availability": { "status": "Available", "nextAvailable": "Today" }
     },
     {
       "id": "2",
@@ -22,7 +28,13 @@
       "unit": "hour",
       "condition": "Good",
       "imageUrl": "https://images.unsplash.com/photo-1707680946878-d02775437174?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxM3x8dHJhY3RvciUyMGN1bHRpdmF0b3IlMjB0b29sfGVufDB8fHx8MTc1NzY5NDc3OXww&ixlib=rb-4.1.0&q=80&w=1080",
-      "imageHint": "combine harvester"
+      "imageHint": "combine harvester",
+      "owner": {
+        "name": "Harman Kaur",
+        "avatarUrl": "https://i.pravatar.cc/150?u=harman"
+      },
+      "reviews": { "rating": 4.5, "count": 18 },
+      "availability": { "status": "Rented Out", "nextAvailable": "In 2 days" }
     },
     {
       "id": "6",
@@ -34,7 +46,13 @@
       "unit": "day",
       "condition": "Used",
       "imageUrl": "https://images.unsplash.com/photo-1599581977221-c3861f10704a?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwzfHxwbG91Z2glMjBhdHRhY2htZW50JTIwdG9vbCUyMGJpZ3xlbnwwfHx8fDE3NTc2OTgwMDh8MA&ixlib=rb-4.1.0&q=80&w=1080",
-      "imageHint": "farm plow"
+      "imageHint": "farm plow",
+      "owner": {
+        "name": "Balwinder Singh",
+        "avatarUrl": "https://i.pravatar.cc/150?u=balwinder"
+      },
+      "reviews": { "rating": 4.2, "count": 32 },
+      "availability": { "status": "Available", "nextAvailable": "Today" }
     },
     {
       "id": "9",
@@ -46,7 +64,13 @@
       "unit": "day",
       "condition": "Good",
       "imageUrl": "https://images.unsplash.com/photo-1594691592645-3f8351f04e84?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxMXx8c2VlZGVyJTIwdG9vbCUyMGFncmljdWx0dXJlfGVufDB8fHx8MTc1NzY5NjkzN3ww&ixlib=rb-4.1.0&q=80&w=1080",
-      "imageHint": "farm seeder"
+      "imageHint": "farm seeder",
+      "owner": {
+        "name": "Manpreet Kaur",
+        "avatarUrl": "https://i.pravatar.cc/150?u=manpreet"
+      },
+      "reviews": { "rating": 4.6, "count": 12 },
+      "availability": { "status": "Available", "nextAvailable": "Today" }
     },
     {
       "id": "10",
@@ -58,7 +82,13 @@
       "unit": "day",
       "condition": "Good",
       "imageUrl": "https://images.unsplash.com/photo-1692264204894-384f506778a8?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxOHx8cGxvdWdoZXIlMjB0b29sJTIwYWdyaWN1bHR1cmV8ZW58MHx8fHwxNzU3Njk3MDEyfDA&ixlib=rb-4.1.0&q=80&w=1080",
-      "imageHint": "farm plough"
+      "imageHint": "farm plough",
+      "owner": {
+        "name": "Jaswinder Singh",
+        "avatarUrl": "https://i.pravatar.cc/150?u=jaswinder"
+      },
+      "reviews": { "rating": 4.3, "count": 21 },
+      "availability": { "status": "Rented Out", "nextAvailable": "Tomorrow" }
     },
     {
       "id": "8",
@@ -70,7 +100,13 @@
       "unit": "day",
       "condition": "New",
       "imageUrl": "https://images.unsplash.com/photo-1591806182241-a6e4bdd59735?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw5fHxpcnJpZ2F0aW9uJTIwc3ByYW5rbGVyfGVufDB8fHx8MTc1NzY5NzU2MXww&ixlib=rb-4.1.0&q=80&w=1080",
-      "imageHint": "irrigation sprinkler"
+      "imageHint": "irrigation sprinkler",
+      "owner": {
+        "name": "Amrita Kaur",
+        "avatarUrl": "https://i.pravatar.cc/150?u=amrita"
+      },
+      "reviews": { "rating": 4.9, "count": 40 },
+      "availability": { "status": "Available", "nextAvailable": "Today" }
     },
     {
       "id": "pesticide-01",
@@ -82,7 +118,13 @@
       "unit": "container",
       "condition": "New",
       "imageUrl": "https://images.unsplash.com/photo-1653543362966-a97e081f3086?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxOXx8cGVzdGljaWRlJTIwYmFnfGVufDB8fHx8MTc1NzY5ODI2M3ww&ixlib=rb-4.1.0&q=80&w=1080",
-      "imageHint": "pesticide bottle"
+      "imageHint": "pesticide bottle",
+      "owner": {
+        "name": "Punjab Agro",
+        "avatarUrl": "https://i.pravatar.cc/150?u=punjab-agro"
+      },
+      "reviews": { "rating": 4.7, "count": 150 },
+      "availability": { "status": "Available", "nextAvailable": "In Stock" }
     },
     {
       "id": "fertilizer-01",
@@ -94,7 +136,13 @@
       "unit": "bag",
       "condition": "New",
       "imageUrl": "https://images.unsplash.com/photo-1661669037580-4879ceae9ea8?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw2fHxuaXRyb2dlbiUyMGZlcnRpbGl6ZXIlMjBiYWd8ZW58MHx8fHwxNzU3Njk1MzcxfDA&ixlib=rb-4.1.0&q=80&w=1080",
-      "imageHint": "fertilizer bag"
+      "imageHint": "fertilizer bag",
+      "owner": {
+        "name": "Modern Kheti",
+        "avatarUrl": "https://i.pravatar.cc/150?u=modern-kheti"
+      },
+      "reviews": { "rating": 4.8, "count": 210 },
+      "availability": { "status": "Available", "nextAvailable": "In Stock" }
     },
     {
       "id": "seeds-01",
@@ -106,7 +154,13 @@
       "unit": "bag",
       "condition": "New",
       "imageUrl": "https://images.unsplash.com/photo-1641912593355-134c57c76246?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxfHxjb3JuJTIwc2VlZHN8ZW58MHx8fHwxNzU3Njk4MzY5fDA&ixlib=rb-4.1.0&q=80&w=1080",
-      "imageHint": "corn seeds"
+      "imageHint": "corn seeds",
+      "owner": {
+        "name": "Farm Fresh Seeds",
+        "avatarUrl": "https://i.pravatar.cc/150?u=farm-fresh"
+      },
+      "reviews": { "rating": 4.9, "count": 300 },
+      "availability": { "status": "Available", "nextAvailable": "In Stock" }
     },
     {
       "id": "seeds-02",
@@ -118,7 +172,13 @@
       "unit": "bag",
       "condition": "New",
       "imageUrl": "https://images.unsplash.com/photo-1594020665228-255d12d3084d?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwyfHx3aGVhdCUyMHNlZWRzfGVufDB8fHx8MTc1NzY5ODQyN3ww&ixlib=rb-4.1.0&q=80&w=1080",
-      "imageHint": "wheat seeds"
+      "imageHint": "wheat seeds",
+      "owner": {
+        "name": "Farm Fresh Seeds",
+        "avatarUrl": "https://i.pravatar.cc/150?u=farm-fresh"
+      },
+      "reviews": { "rating": 4.8, "count": 180 },
+      "availability": { "status": "Available", "nextAvailable": "In Stock" }
     }
   ]
 }
