@@ -16,7 +16,8 @@ import {
   Tractor,
   User,
   Phone,
-  LogOut
+  LogOut,
+  ShoppingCart
 } from 'lucide-react';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
@@ -46,6 +47,18 @@ export default function AppLayout({ children }: { children: React.ReactNode }) {
                   <Link href="/rent">
                     <Tractor />
                     <span>Rentals</span>
+                  </Link>
+                </SidebarMenuButton>
+              </SidebarMenuItem>
+              <SidebarMenuItem>
+                <SidebarMenuButton
+                  asChild
+                  isActive={pathname.startsWith('/buy')}
+                  tooltip={{ children: 'Buy' }}
+                >
+                  <Link href="/buy">
+                    <ShoppingCart />
+                    <span>Buy</span>
                   </Link>
                 </SidebarMenuButton>
               </SidebarMenuItem>
