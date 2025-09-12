@@ -51,7 +51,7 @@ export const categories: {
   },
   {
     name: 'pesticides',
-    subcategories: ['natural', 'chemical'],
+    subcategories: ['chemical'],
   },
   {
     name: 'fertilizers',

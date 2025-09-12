@@ -9,7 +9,7 @@
       "price": 700,
       "unit": "hour",
       "condition": "Excellent",
-      "imageUrl": "https://images.unsplash.com/photo-1619314383191-3d75d5e26a7f?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxfHx0cmFjdG9yJTIwaW1hZ2V8ZW58MHx8fHwxNzU3Njk0MTM3fDA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageUrl": "https://images.unsplash.com/photo-1619314383191-3d75d5e26a7f?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxfHx0cmFjdG9yJTIwaW1hZ2V8ZW58MHx8fHwxNzU3Njk0MTM3fDA&ixlib-rb-4.1.0&q=80&w=1080",
       "imageHint": "farm tractor",
       "owner": {
         "id": "owner-1",
@@ -31,7 +31,7 @@
       "price": 700,
       "unit": "hour",
       "condition": "Good",
-      "imageUrl": "https://images.unsplash.com/photo-1707680946878-d02775437174?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxM3x8dHJhY3RvciUyMGN1bHRpdmF0b3IlMjB0b29sfGVufDB8fHx8MTc1NzY5NDc3OXww&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageUrl": "https://images.unsplash.com/photo-1707680946878-d02775437174?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxM3x8dHJhY3RvciUyMGN1bHRpdmF0b3IlMjB0b29sfGVufDB8fHx8MTc1NzY5NDc3OXww&ixlib-rb-4.1.0&q=80&w=1080",
       "imageHint": "combine harvester",
       "owner": {
         "id": "owner-2",
@@ -141,7 +141,7 @@
       "price": 800,
       "unit": "hour",
       "condition": "Good",
-      "imageUrl": "https://images.unsplash.com/photo-1755637659524-0b913b2d060c?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwzfHxjdWx0aXZhdG9yJTIwdHJhY3RvciUyMHRvb2x8ZW58MHx8fHwxNzU3NzA2NDcyfDA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageUrl": "https://images.unsplash.com/photo-1755637659524-0b913b2d060c?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwzfHxjdWx0aXZhdG9yJTIwdHJhY3RvciUyMHRvb2x8ZW58MHx8fHwxNzU3NzA2NDcyfDA&ixlib-rb-4.1.0&q=80&w=1080",
       "imageHint": "farm cultivator",
       "owner": {
         "id": "owner-1",
@@ -163,7 +163,7 @@
       "price": 300,
       "unit": "hour",
       "condition": "Good",
-      "imageUrl": "https://images.unsplash.com/photo-1749030432965-da86e3abc957?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw0fHxiYWNrcGFjayUyMHNwcmF5ZXIlMjBhZ3JpY3VsdHVyYWwlMjB0b29sfGVufDB8fHx8MTc1NzcwNzA1MXww&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageUrl": "https://images.unsplash.com/photo-1749030432965-da86e3abc957?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw0fHxiYWNrcGFjayUyMHNwcmF5ZXIlMjBhZ3JpY3VsdHVyYWwlMjB0b29sfGVufDB8fHx8MTc1NzcwNzA1MXww&ixlib-rb-4.1.0&q=80&w=1080",
       "imageHint": "backpack sprayer",
       "owner": {
         "id": "owner-2",
@@ -178,10 +178,10 @@
     },
     {
       "id": "pesticide-01",
-      "name": "Natural Pesticide",
+      "name": "Chemical Pesticide",
       "description": "Eco-friendly pesticide to protect your crops from common pests. Safe for organic farming.",
       "category": "pesticides",
-      "subcategory": "natural",
+      "subcategory": "chemical",
       "price": 550,
       "unit": "container",
       "condition": "New",
@@ -273,7 +273,7 @@
       "price": 100,
       "unit": "hour",
       "condition": "Good",
-      "imageUrl": "https://images.unsplash.com/photo-1647978403048-2e5099133ea3?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxfHxzcGFkZXxlbnwwfHx8fDE3NTc3MDcyMjZ8MA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageUrl": "https://images.unsplash.com/photo-1647978403048-2e5099133ea3?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxfHxzcGFkZXxlbnwwfHx8fDE3NTc3MDcyMjZ8MA&ixlib-rb-4.1.0&q=80&w=1080",
       "imageHint": "gardening spade",
       "owner": {
         "id": "owner-1",
@@ -317,7 +317,7 @@
       "price": 100,
       "unit": "hour",
       "condition": "Good",
-      "imageUrl": "https://images.unsplash.com/photo-1695712138292-0c9a35dc36c7?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw0fHxyYWtlfGVufDB8fHx8MTc1NzcwNzQxMHww&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageUrl": "https://images.unsplash.com/photo-1695712138292-0c9a35dc36c7?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw0fHxyYWtlfGVufDB8fHx8MTc1NzcwNzQxMHww&ixlib-rb-4.1.0&q=80&w=1080",
       "imageHint": "gardening rake",
       "owner": {
         "id": "owner-1",
