@@ -53,7 +53,7 @@
       "price": 500,
       "unit": "day",
       "condition": "Used",
-      "imageUrl": "https://images.unsplash.com/photo-1599581977221-c3861f10704a?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwzfHxwbG91Z2glMjBhdHRhY2htZW50JTIwdG9vbCUyMGJpZ3xlbnwwfHx8fDE3NTc2OTgwMDh8MA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageUrl": "https://images.unsplash.com/photo-1599581977221-c3861f10704a?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwzfHxwbG91Z2glMjBhdHRhY2htZW50JTIwdG9vbCUyMGJpZ3xlbnwwfHx8fDE3NTc2OTgwMDh8MA&ixlib-rb-4.1.0&q=80&w=1080",
       "imageHint": "farm plow",
       "owner": {
         "id": "owner-3",
@@ -75,7 +75,7 @@
       "price": 1000,
       "unit": "hour",
       "condition": "Good",
-      "imageUrl": "https://images.unsplash.com/photo-1594691592645-3f8351f04e84?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxMXx8c2VlZGVyJTIwdG9vbCUyMGFncmljdWx0dXJlfGVufDB8fHx8MTc1NzY5NjkzN3ww&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageUrl": "https://images.unsplash.com/photo-1594691592645-3f8351f04e84?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxMXx8c2VlZGVyJTIwdG9vbCUyMGFncmljdWx0dXJlfGVufDB8fHx8MTc1NzY5NjkzN3ww&ixlib-rb-4.1.0&q=80&w=1080",
       "imageHint": "farm seeder",
       "owner": {
         "id": "owner-4",
@@ -116,8 +116,8 @@
       "description": "Adjustable irrigation sprinkler for efficient water distribution. Covers a wide area.",
       "category": "tools",
       "subcategory": "spraying equipment",
-      "price": 40,
-      "unit": "day",
+      "price": 500,
+      "unit": "hour",
       "condition": "New",
       "imageUrl": "https://images.unsplash.com/photo-1591806182241-a6e4bdd59735?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw5fHxpcnJpZ2F0aW9uJTIwc3ByYW5rbGVyfGVufDB8fHx8MTc1NzY5NzU2MXww&ixlib-rb-4.1.0&q=80&w=1080",
       "imageHint": "irrigation sprinkler",
@@ -251,7 +251,7 @@
       "price": 350,
       "unit": "bag",
       "condition": "New",
-      "imageUrl": "https://images.unsplash.com/photo-1594020665228-255d12d3084d?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwyfHx3aGVhdCUyMHNlZWRzfGVufDB8fHx8MTc1NzY5ODQyN3ww&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageUrl": "https://images.unsplash.com/photo-1594020665228-255d12d3084d?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwyfHx3aGVhdCUyMHNlZWRzfGVufDB8fHx8MTc1NzY5ODQyN3ww&ixlib-rb-4.1.0&q=80&w=1080",
       "imageHint": "wheat seeds",
       "owner": {
         "id": "owner-9",
