@@ -94,10 +94,10 @@
       "description": "A robust plougher for breaking up hard soil. Ideal for preparing land for cultivation.",
       "category": "tools",
       "subcategory": "agricultural machinery",
-      "price": 70,
-      "unit": "day",
+      "price": 900,
+      "unit": "hour",
       "condition": "Good",
-      "imageUrl": "https://images.unsplash.com/photo-1692264204894-384f506778a8?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxOHx8cGxvdWdoZXIlMjB0b29sJTIwYWdyaWN1bHR1cmV8ZW58MHx8fHwxNzU3Njk3MDEyfDA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageUrl": "https://images.unsplash.com/photo-1692264204894-384f506778a8?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxOHx8cGxvdWdoZXIlMjB0b29sJTIwYWdyaWN1bHR1cmV8ZW58MHx8fHwxNzU3Njk3MDEyfDA&ixlib-rb-4.1.0&q=80&w=1080",
       "imageHint": "farm plough",
       "owner": {
         "id": "owner-5",
@@ -119,7 +119,7 @@
       "price": 40,
       "unit": "day",
       "condition": "New",
-      "imageUrl": "https://images.unsplash.com/photo-1591806182241-a6e4bdd59735?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw5fHxpcnJpZ2F0aW9uJTIwc3ByYW5rbGVyfGVufDB8fHx8MTc1NzY5NzU2MXww&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageUrl": "https://images.unsplash.com/photo-1591806182241-a6e4bdd59735?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw5fHxpcnJpZ2F0aW9uJTIwc3ByYW5rbGVyfGVufDB8fHx8MTc1NzY5NzU2MXww&ixlib-rb-4.1.0&q=80&w=1080",
       "imageHint": "irrigation sprinkler",
       "owner": {
         "id": "owner-6",
@@ -207,7 +207,7 @@
       "price": 1200,
       "unit": "bag",
       "condition": "New",
-      "imageUrl": "https://images.unsplash.com/photo-1661669037580-4879ceae9ea8?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw2fHxuaXRyb2dlbiUyMGZlcnRpbGl6ZXIlMjBiYWd8ZW58MHx8fHwxNzU3Njk1MzcxfDA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageUrl": "https://images.unsplash.com/photo-1661669037580-4879ceae9ea8?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw2fHxuaXRyb2dlbiUyMGZlcnRpbGl6ZXIlMjBiYWd8ZW58MHx8fHwxNzU3Njk1MzcxfDA&ixlib-rb-4.1.0&q=80&w=1080",
       "imageHint": "fertilizer bag",
       "owner": {
         "id": "owner-8",
