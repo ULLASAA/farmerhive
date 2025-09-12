@@ -37,18 +37,6 @@
       "imageHint": "wheat seeds"
     },
     {
-      "id": "4",
-      "name": "Pesticide",
-      "description": "Eco-friendly pesticide to protect your crops from common pests. Safe for organic farming. Price per 5L container.",
-      "category": "pesticides",
-      "subcategory": "herbicide",
-      "price": 400,
-      "unit": "bag",
-      "condition": "New",
-      "imageUrl": "https://images.unsplash.com/photo-1653543362966-a97e081f3086?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxOXx8JTIwcGVzdGljaWRlJTIwYmFnfGVufDB8fHx8MTc1NzY5NTI5NXww&ixlib=rb-4.1.0&q=80&w=1080",
-      "imageHint": "spraying crops"
-    },
-    {
       "id": "6",
       "name": "Plow Attachment",
       "description": "Durable plow for tilling soil before planting. Attaches to most standard tractors.",
@@ -71,18 +59,6 @@
       "condition": "New",
       "imageUrl": "https://picsum.photos/seed/corn/600/400",
       "imageHint": "corn seeds"
-    },
-    {
-      "id": "8",
-      "name": "Irrigation Sprinkler",
-      "description": "Automated sprinkler system for efficient field irrigation. Covers a large area.",
-      "category": "tools",
-      "subcategory": "spraying equipment",
-      "price": 60,
-      "unit": "day",
-      "condition": "Good",
-      "imageUrl": "https://picsum.photos/seed/sprinkler/600/400",
-      "imageHint": "irrigation sprinkler"
     },
     {
       "id": "9",
