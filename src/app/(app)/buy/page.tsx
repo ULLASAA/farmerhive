@@ -83,7 +83,7 @@ export default function BuyPage() {
             </CardContent>
             <CardFooter className="flex items-center justify-between p-4 pt-0">
                 <p className="text-lg font-semibold text-primary">
-                    ${item.price.toFixed(2)}
+                    ₹{item.price.toFixed(2)}
                 </p>
                 <Button asChild>
                     <Link href={`/book/${item.id}?price=${item.price.toFixed(2)}`}>

@@ -79,7 +79,7 @@ export default function RentPage() {
             </CardContent>
             <CardFooter className="flex items-center justify-between p-4 pt-0">
                 <p className="text-lg font-semibold text-primary">
-                    ${item.price.toFixed(2)}<span className="text-sm font-normal text-muted-foreground">/day</span>
+                    ₹{item.price.toFixed(2)}<span className="text-sm font-normal text-muted-foreground">/day</span>
                 </p>
                 <Button asChild className="bg-accent text-accent-foreground hover:bg-accent/90">
                     <Link href={`/bargain/${item.id}`}>Details</Link>
