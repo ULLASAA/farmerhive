@@ -11,56 +11,21 @@ import {
   CardHeader,
   CardTitle,
 } from '@/components/ui/card';
-import {
-  Select,
-  SelectContent,
-  SelectItem,
-  SelectTrigger,
-  SelectValue,
-  SelectGroup,
-  SelectLabel,
-} from '@/components/ui/select';
 import { Badge } from '@/components/ui/badge';
-import { rentalItems, categories, type RentalItem } from '@/lib/placeholder-images';
+import { rentalItems, type RentalItem } from '@/lib/placeholder-images';
 import { Button } from '@/components/ui/button';
 import { PlusCircle } from 'lucide-react';
 
 export default function RentPage() {
-  const [filter, setFilter] = useState('all');
-
   const filteredItems = rentalItems.filter(
-    (item) => {
-      if (filter === 'all') return true;
-      const [category, subcategory] = filter.split(':');
-      if (!subcategory) return item.category === category;
-      return item.category === category && item.subcategory === subcategory;
-    }
+    (item) => item.subcategory === 'tractors'
   );
 
   return (
     <div className="container mx-auto px-4 py-8">
       <div className="mb-8 flex flex-col items-center justify-between gap-4 md:flex-row">
-        <h1 className="text-3xl font-bold tracking-tight">Available for Rent</h1>
+        <h1 className="text-3xl font-bold tracking-tight">Available Tractors</h1>
         <div className="flex items-center gap-2">
-            <Select onValueChange={setFilter} defaultValue="all">
-                <SelectTrigger className="w-full md:w-[220px]">
-                <SelectValue placeholder="Filter by category" />
-                </SelectTrigger>
-                <SelectContent>
-                  <SelectItem value="all">All Categories</SelectItem>
-                  {categories.map((category) => (
-                    <SelectGroup key={category.name}>
-                      <SelectLabel className="capitalize">{category.name}</SelectLabel>
-                       <SelectItem value={category.name} className="font-bold capitalize pl-8">All {category.name}</SelectItem>
-                      {category.subcategories?.map(sub => (
-                        <SelectItem key={`${category.name}:${sub}`} value={`${category.name}:${sub}`} className="capitalize pl-8">
-                          {sub}
-                        </SelectItem>
-                      ))}
-                    </SelectGroup>
-                  ))}
-                </SelectContent>
-            </Select>
              <Button asChild>
               <Link href="/rent/upload">
                 <PlusCircle className="mr-2 h-4 w-4" />
