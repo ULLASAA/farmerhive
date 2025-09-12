@@ -6,7 +6,7 @@ import { Button } from '@/components/ui/button';
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
 import { useToast } from '@/hooks/use-toast';
 import { getToolDemandPrediction } from '@/app/actions';
-import type { PredictiveDemandInput, PredictiveDemandOutput } from '@/ai/flows/predictive-tool-demand';
+import type { PredictiveDemandInput, PredictiveDemandOutput } from '@/ai/schemas/predictive-tool-demand';
 import { Loader2, BrainCircuit, BarChart, LineChart, TrendingUp, TrendingDown, Tractor } from 'lucide-react';
 import { Alert, AlertDescription, AlertTitle } from '@/components/ui/alert';
 import { Separator } from '@/components/ui/separator';
