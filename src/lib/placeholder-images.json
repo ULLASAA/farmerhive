@@ -75,7 +75,7 @@
       "price": 1000,
       "unit": "hour",
       "condition": "Good",
-      "imageUrl": "https://images.unsplash.com/photo-1594691592645-3f8351f04e84?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxMXx8c2VlZGVyJTIwdG9vbCUyMGFncmljdWx0dXJlfGVufDB8fHx8MTc1NzY5NjkzN3ww&ixlib-rb-4.1.0&q=80&w=1080",
+      "imageUrl": "https://images.unsplash.com/photo-1594691592645-3f8351f04e84?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxMXx8c2VlZGVyJTIwdG9vbCUyMGFncmljdWx0dXJlfGVufDB8fHx8MTc1NzY5NjkzN3ww&ixlib=rb-4.1.0&q=80&w=1080",
       "imageHint": "farm seeder",
       "owner": {
         "id": "owner-4",
@@ -207,7 +207,7 @@
       "price": 1200,
       "unit": "bag",
       "condition": "New",
-      "imageUrl": "https://images.unsplash.com/photo-1661669037580-4879ceae9ea8?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw2fHxuaXRyb2dlbiUyMGZlcnRpbGl6ZXIlMjBiYWd8ZW58MHx8fHwxNzU3Njk1MzcxfDA&ixlib-rb-4.1.0&q=80&w=1080",
+      "imageUrl": "https://images.unsplash.com/photo-1661669037580-4879ceae9ea8?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw2fHxuaXRyb2dlbiUyMGZlcnRpbGl6ZXIlMjBiYWd8ZW58MHx8fHwxNzU3Njk1MzcxfDA&ixlib=rb-4.1.0&q=80&w=1080",
       "imageHint": "fertilizer bag",
       "owner": {
         "id": "owner-8",
@@ -251,7 +251,7 @@
       "price": 350,
       "unit": "bag",
       "condition": "New",
-      "imageUrl": "https://images.unsplash.com/photo-1594020665228-255d12d3084d?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwyfHx3aGVhdCUyMHNlZWRzfGVufDB8fHx8MTc1NzY5ODQyN3ww&ixlib-rb-4.1.0&q=80&w=1080",
+      "imageUrl": "https://images.unsplash.com/photo-1594020665228-255d12d3084d?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwyfHx3aGVhdCUyMHNlZWRzfGVufDB8fHx8MTc1NzY5ODQyN3ww&ixlib=rb-4.1.0&q=80&w=1080",
       "imageHint": "wheat seeds",
       "owner": {
         "id": "owner-9",
@@ -263,6 +263,72 @@
       },
       "reviews": { "rating": 4.8, "count": 180 },
       "availability": { "status": "Available", "nextAvailable": "In Stock" }
+    },
+    {
+      "id": "spade-01",
+      "name": "Spade",
+      "description": "A durable spade for digging and moving soil.",
+      "category": "tools",
+      "subcategory": "gardening tools",
+      "price": 100,
+      "unit": "hour",
+      "condition": "Good",
+      "imageUrl": "https://picsum.photos/seed/spade/600/400",
+      "imageHint": "gardening spade",
+      "owner": {
+        "id": "owner-1",
+        "name": "Gurpreet Singh",
+        "avatarUrl": "https://i.pravatar.cc/150?u=gurpreet",
+        "email": "gurpreet.singh@example.com",
+        "phone": "+91-9876543211",
+        "address": "12 Main St, Ludhiana, Punjab"
+      },
+      "reviews": { "rating": 4.5, "count": 10 },
+      "availability": { "status": "Available", "nextAvailable": "Today" }
+    },
+    {
+      "id": "pitchfork-01",
+      "name": "Pitchfork",
+      "description": "A sturdy pitchfork for lifting and pitching hay.",
+      "category": "tools",
+      "subcategory": "gardening tools",
+      "price": 100,
+      "unit": "hour",
+      "condition": "Good",
+      "imageUrl": "https://picsum.photos/seed/pitchfork/600/400",
+      "imageHint": "gardening pitchfork",
+      "owner": {
+        "id": "owner-1",
+        "name": "Gurpreet Singh",
+        "avatarUrl": "https://i.pravatar.cc/150?u=gurpreet",
+        "email": "gurpreet.singh@example.com",
+        "phone": "+91-9876543211",
+        "address": "12 Main St, Ludhiana, Punjab"
+      },
+      "reviews": { "rating": 4.6, "count": 8 },
+      "availability": { "status": "Available", "nextAvailable": "Today" }
+    },
+    {
+      "id": "rake-01",
+      "name": "Rake",
+      "description": "A wide rake for gathering leaves and debris.",
+      "category": "tools",
+      "subcategory": "gardening tools",
+      "price": 100,
+      "unit": "hour",
+      "condition": "Good",
+      "imageUrl": "https://picsum.photos/seed/rake/600/400",
+      "imageHint": "gardening rake",
+      "owner": {
+        "id": "owner-1",
+        "name": "Gurpreet Singh",
+        "avatarUrl": "https://i.pravatar.cc/150?u=gurpreet",
+        "email": "gurpreet.singh@example.com",
+        "phone": "+91-9876543211",
+        "address": "12 Main St, Ludhiana, Punjab"
+      },
+      "reviews": { "rating": 4.7, "count": 12 },
+      "availability": { "status": "Available", "nextAvailable": "Today" }
     }
   ]
 }
