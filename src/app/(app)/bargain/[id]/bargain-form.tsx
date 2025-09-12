@@ -38,6 +38,7 @@ import { Loader2, Sparkles, Lightbulb, CreditCard } from 'lucide-react';
 import { Alert, AlertDescription, AlertTitle } from '@/components/ui/alert';
 import { useRouter } from 'next/navigation';
 import { RadioGroup, RadioGroupItem } from '@/components/ui/radio-group';
+import { Separator } from '@/components/ui/separator';
 
 const bargainFormSchema = z.object({
   price: z.coerce.number().positive('Price must be a positive number.'),
