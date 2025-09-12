@@ -47,7 +47,7 @@ export const categories: {
   },
    {
     name: 'seeds',
-    subcategories: ['grains', 'vegetables'],
+    subcategories: ['grains'],
   },
   {
     name: 'pesticides',
