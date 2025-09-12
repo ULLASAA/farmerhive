@@ -25,18 +25,6 @@
       "imageHint": "combine harvester"
     },
     {
-      "id": "3",
-      "name": "Organic Wheat Seeds",
-      "description": "High-yield, non-GMO organic wheat seeds. Suitable for all soil types. Price per 10kg bag.",
-      "category": "seeds",
-      "subcategory": "grain",
-      "price": 25,
-      "unit": "bag",
-      "condition": "New",
-      "imageUrl": "https://images.unsplash.com/photo-1665603425329-ce74d6d88550?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxMHx8b3JnYW5pYyUyMHdoZWF0JTIwc2VlZHxlbnwwfHx8fDE3NTc2OTUxMzl8MA&ixlib=rb-4.1.0&q=80&w=1080",
-      "imageHint": "wheat seeds"
-    },
-    {
       "id": "6",
       "name": "Plow Attachment",
       "description": "Durable plow for tilling soil before planting. Attaches to most standard tractors.",
@@ -47,18 +35,6 @@
       "condition": "Used",
       "imageUrl": "https://picsum.photos/seed/plow/600/400",
       "imageHint": "farm plow"
-    },
-    {
-      "id": "7",
-      "name": "Corn Seeds",
-      "description": "High-quality corn seeds for a bountiful harvest. Resistant to common diseases. Price per 10kg bag.",
-      "category": "seeds",
-      "subcategory": "grain",
-      "price": 30,
-      "unit": "bag",
-      "condition": "New",
-      "imageUrl": "https://picsum.photos/seed/corn/600/400",
-      "imageHint": "corn seeds"
     },
     {
       "id": "9",
