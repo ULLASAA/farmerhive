@@ -1,7 +1,9 @@
+'use client';
+
 import Image from 'next/image';
 import Link from 'next/link';
 import { notFound } from 'next/navigation';
-import { rentalItems, type RentalItem, buyableCategories } from '@/lib/placeholder-images';
+import { rentalItems, type RentalItem, buyableCategories, categories as allCategories } from '@/lib/placeholder-images';
 import {
   Card,
   CardContent,
@@ -15,8 +17,20 @@ import { Badge } from '@/components/ui/badge';
 import { Button } from '@/components/ui/button';
 import { Separator } from '@/components/ui/separator';
 import { Mail, MapPin, Phone, Star, ArrowLeft } from 'lucide-react';
+import { useState } from 'react';
+import {
+  Select,
+  SelectContent,
+  SelectItem,
+  SelectTrigger,
+  SelectValue,
+  SelectGroup,
+  SelectLabel,
+} from '@/components/ui/select';
 
 export default function OwnerProfilePage({ params }: { params: { id: string } }) {
+  const [filter, setFilter] = useState('all');
+
   const owner = rentalItems.find((item) => item.owner.id === params.id)?.owner;
   const ownerItems = rentalItems.filter((item) => item.owner.id === params.id);
 
@@ -28,6 +42,19 @@ export default function OwnerProfilePage({ params }: { params: { id: string } })
   const averageRating = ownerItems.length > 0 
     ? ownerItems.reduce((acc, item) => acc + item.reviews.rating * item.reviews.count, 0) / totalReviews
     : 0;
+  
+  const ownerCategories = allCategories.filter(cat => 
+    ownerItems.some(item => item.category === cat.name)
+  );
+
+  const filteredItems = ownerItems.filter(
+    (item) => {
+      if (filter === 'all') return true;
+      const [category, subcategory] = filter.split(':');
+      if (!subcategory) return item.category === category;
+      return item.category === category && item.subcategory === subcategory;
+    }
+  );
 
 
   return (
@@ -90,9 +117,32 @@ export default function OwnerProfilePage({ params }: { params: { id: string } })
           </Card>
         </div>
         <div className="md:col-span-2">
-            <h2 className="text-2xl font-bold tracking-tight mb-4">{owner.name}'s Listings</h2>
+            <div className="mb-4 flex flex-col items-center justify-between gap-4 md:flex-row">
+                 <h2 className="text-2xl font-bold tracking-tight">{owner.name}'s Listings</h2>
+                 <div className="w-full md:w-auto">
+                    <Select onValueChange={setFilter} defaultValue="all">
+                        <SelectTrigger className="w-full md:w-[220px]">
+                        <SelectValue placeholder="Filter by category" />
+                        </SelectTrigger>
+                        <SelectContent>
+                        <SelectItem value="all">All Categories</SelectItem>
+                        {ownerCategories.map((category) => (
+                            <SelectGroup key={category.name}>
+                            <SelectLabel className="capitalize">{category.name}</SelectLabel>
+                            <SelectItem value={category.name} className="font-bold capitalize pl-8">All {category.name}</SelectItem>
+                            {category.subcategories?.filter(sub => ownerItems.some(item => item.subcategory === sub)).map(sub => (
+                                <SelectItem key={`${category.name}:${sub}`} value={`${category.name}:${sub}`} className="capitalize pl-8">
+                                {sub}
+                                </SelectItem>
+                            ))}
+                            </SelectGroup>
+                        ))}
+                        </SelectContent>
+                    </Select>
+                </div>
+            </div>
             <div className="grid grid-cols-1 gap-6 sm:grid-cols-2">
-                {ownerItems.map((item: RentalItem) => (
+                {filteredItems.map((item: RentalItem) => (
                 <Card
                     key={item.id}
                     className="flex flex-col overflow-hidden transition-all hover:shadow-lg"
