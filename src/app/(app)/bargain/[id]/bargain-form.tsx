@@ -34,9 +34,8 @@ import { useToast } from '@/hooks/use-toast';
 import { generateSuggestions } from '@/app/actions';
 import type { RentalItem } from '@/lib/placeholder-images';
 import type { BargainingSuggestionOutput } from '@/ai/flows/bargaining-suggestions';
-import { Loader2, Sparkles, Lightbulb, CreditCard } from 'lucide-react';
+import { Loader2, Sparkles, Lightbulb, CreditCard, Send, Hourglass } from 'lucide-react';
 import { Alert, AlertDescription, AlertTitle } from '@/components/ui/alert';
-import { useRouter } from 'next/navigation';
 import { RadioGroup, RadioGroupItem } from '@/components/ui/radio-group';
 import { Separator } from '@/components/ui/separator';
 
@@ -54,8 +53,8 @@ export default function BargainForm({ item }: { item: RentalItem }) {
   const { toast } = useToast();
   const [isLoading, setIsLoading] = useState(false);
   const [isGenerating, setIsGenerating] = useState(false);
+  const [offerSent, setOfferSent] = useState(false);
   const [suggestion, setSuggestion] = useState<BargainingSuggestionOutput | null>(null);
-  const router = useRouter();
 
   const form = useForm<z.infer<typeof bargainFormSchema>>({
     resolver: zodResolver(bargainFormSchema),
@@ -106,8 +105,39 @@ export default function BargainForm({ item }: { item: RentalItem }) {
 
   async function onSubmit(values: z.infer<typeof bargainFormSchema>) {
     setIsLoading(true);
-    // Navigate to the booking page with the offered price
-    router.push(`/book/${item.id}?price=${values.price}`);
+    // Simulate sending the offer to the owner
+    console.log('Sending offer to owner:', {
+      itemId: item.id,
+      ...values
+    });
+
+    setTimeout(() => {
+        setOfferSent(true);
+        setIsLoading(false);
+        toast({
+            title: "Offer Sent!",
+            description: "Your offer has been sent to the owner for confirmation."
+        });
+    }, 1500);
+
+  }
+  
+  if (offerSent) {
+    return (
+        <Card>
+            <CardHeader>
+                <CardTitle>Offer Sent for Confirmation</CardTitle>
+                 <CardDescription>
+                    Your offer for the <span className="font-semibold text-primary">{item.name}</span> has been sent to the owner.
+                </CardDescription>
+            </CardHeader>
+            <CardContent className="flex flex-col items-center justify-center text-center space-y-4 p-8">
+                <Hourglass className="h-16 w-16 text-primary animate-pulse" />
+                <p className="text-lg font-semibold">Waiting for owner's response...</p>
+                <p className="text-muted-foreground">You will be notified once the owner accepts or rejects your offer. You can track the status in your notifications.</p>
+            </CardContent>
+        </Card>
+    )
   }
 
   return (
@@ -115,7 +145,7 @@ export default function BargainForm({ item }: { item: RentalItem }) {
       <CardHeader>
         <CardTitle>Make Your Offer</CardTitle>
         <CardDescription>
-          Adjust the terms below and either get an AI suggestion or proceed to book.
+          Adjust the terms below. The owner will be notified to confirm your offer.
         </CardDescription>
       </CardHeader>
       <Form {...form}>
@@ -219,7 +249,7 @@ export default function BargainForm({ item }: { item: RentalItem }) {
                 type="button"
                 variant="outline"
                 onClick={handleGenerateSuggestion}
-                disabled={isGenerating}
+                disabled={isGenerating || isLoading}
                 className="w-full"
               >
                 {isGenerating ? (
@@ -273,9 +303,9 @@ export default function BargainForm({ item }: { item: RentalItem }) {
               {isLoading ? (
                 <Loader2 className="mr-2 h-4 w-4 animate-spin" />
               ) : (
-                <CreditCard className="mr-2 h-4 w-4" />
+                <Send className="mr-2 h-4 w-4" />
               )}
-              Confirm & Pay
+              Send Offer for Confirmation
             </Button>
           </CardFooter>
         </form>

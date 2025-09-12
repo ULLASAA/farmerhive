@@ -15,7 +15,7 @@ import {
   DropdownMenuTrigger,
 } from '@/components/ui/dropdown-menu';
 import { SidebarTrigger } from '@/components/ui/sidebar';
-import { LogOut, User, PlusCircle } from 'lucide-react';
+import { LogOut, User, PlusCircle, Bell } from 'lucide-react';
 import { Icons } from './icons';
 
 export function SiteHeader() {
@@ -42,6 +42,18 @@ export function SiteHeader() {
                 Upload Tool
               </Link>
           </Button>
+
+           <Button asChild variant="ghost" className="relative h-9 w-9 rounded-full">
+            <Link href="/notifications">
+                <Bell className="h-4 w-4" />
+                <span className="sr-only">Notifications</span>
+                 <span className="absolute right-1 top-1 flex h-3 w-3">
+                    <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-primary opacity-75"></span>
+                    <span className="relative inline-flex rounded-full h-3 w-3 bg-primary"></span>
+                </span>
+            </Link>
+          </Button>
+
           <DropdownMenu>
             <DropdownMenuTrigger asChild>
               <Button variant="ghost" className="relative h-8 w-8 rounded-full">
@@ -70,6 +82,13 @@ export function SiteHeader() {
                   <Link href="/profile">
                     <User className="mr-2 h-4 w-4" />
                     <span>Profile</span>
+                  </Link>
+                </DropdownMenuItem>
+                 <DropdownMenuItem asChild>
+                  <Link href="/notifications">
+                    <Bell className="mr-2 h-4 w-4" />
+                    <span>Notifications</span>
+                     <span className="ml-auto text-xs font-bold text-primary-foreground bg-primary rounded-full px-2 py-0.5">1</span>
                   </Link>
                 </DropdownMenuItem>
               </DropdownMenuGroup>
