@@ -177,6 +177,28 @@
       "availability": { "status": "Available", "nextAvailable": "Today" }
     },
     {
+      "id": "13",
+      "name": "Cultivator",
+      "description": "A versatile cultivator for secondary tillage. Helps prepare a proper seedbed.",
+      "category": "tools",
+      "subcategory": "agricultural machinery",
+      "price": 60,
+      "unit": "day",
+      "condition": "Good",
+      "imageUrl": "https://picsum.photos/seed/cultivator/600/400",
+      "imageHint": "farm cultivator",
+      "owner": {
+        "id": "owner-3",
+        "name": "Balwinder Singh",
+        "avatarUrl": "https://i.pravatar.cc/150?u=balwinder",
+        "email": "balwinder.singh@example.com",
+        "phone": "+91-9876543213",
+        "address": "78 Village Path, Jalandhar, Punjab"
+      },
+      "reviews": { "rating": 4.4, "count": 19 },
+      "availability": { "status": "Available", "nextAvailable": "Today" }
+    },
+    {
       "id": "pesticide-01",
       "name": "Natural Pesticide",
       "description": "Eco-friendly pesticide to protect your crops from common pests. Safe for organic farming.",
@@ -185,7 +207,7 @@
       "price": 550,
       "unit": "container",
       "condition": "New",
-      "imageUrl": "https://images.unsplash.com/photo-1653543362966-a97e081f3086?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxOXx8cGVzdGljaWRlJTIwYmFnfGVufDB8fHx8MTc1NzY5ODI2M3ww&ixlib-rb-4.1.0&q=80&w=1080",
+      "imageUrl": "https://images.unsplash.com/photo-1653543362966-a97e081f3086?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxOXx8cGVzdGljaWRlJTIwYmFnfGVufDB8fHx8MTc1NzY5ODI2M3ww&ixlib=rb-4.1.0&q=80&w=1080",
       "imageHint": "pesticide bottle",
       "owner": {
         "id": "owner-7",
@@ -207,7 +229,7 @@
       "price": 1200,
       "unit": "bag",
       "condition": "New",
-      "imageUrl": "https://images.unsplash.com/photo-1661669037580-4879ceae9ea8?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw2fHxuaXRyb2dlbiUyMGZlcnRpbGl6ZXIlMjBiYWd8ZW58MHx8fHwxNzU3Njk1MzcxfDA&ixlib-rb-4.1.0&q=80&w=1080",
+      "imageUrl": "https://images.unsplash.com/photo-1661669037580-4879ceae9ea8?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw2fHxuaXRyb2dlbiUyMGZlcnRpbGl6ZXIlMjBiYWd8ZW58MHx8fHwxNzU3Njk1MzcxfDA&ixlib=rb-4.1.0&q=80&w=1080",
       "imageHint": "fertilizer bag",
       "owner": {
         "id": "owner-8",
@@ -251,7 +273,7 @@
       "price": 350,
       "unit": "bag",
       "condition": "New",
-      "imageUrl": "https://images.unsplash.com/photo-1594020665228-255d12d3084d?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwyfHx3aGVhdCUyMHNlZWRzfGVufDB8fHx8MTc1NzY5ODQyN3ww&ixlib-rb-4.1.0&q=80&w=1080",
+      "imageUrl": "https://images.unsplash.com/photo-1594020665228-255d12d3084d?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwyfHx3aGVhdCUyMHNlZWRzfGVufDB8fHx8MTc1NzY5ODQyN3ww&ixlib=rb-4.1.0&q=80&w=1080",
       "imageHint": "wheat seeds",
       "owner": {
         "id": "owner-9",
