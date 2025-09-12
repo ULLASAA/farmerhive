@@ -10,10 +10,10 @@ import { Mail, MapPin, Phone } from 'lucide-react';
 
 export default function ProfilePage() {
   const farmer = {
-    name: 'Farmer John',
-    email: 'farmer.john@example.com',
-    phone: '123-456-7890',
-    address: '123 Farm Road, Greenfield, AG 12345',
+    name: 'Kisan Kumar',
+    email: 'kisan.kumar@example.com',
+    phone: '+91-9876543210',
+    address: '123 Kisan Nagar, Anaj Mandi, Punjab 141001',
     avatarUrl: 'https://picsum.photos/seed/farmer-avatar/200/200',
     coverImageUrl: 'https://picsum.photos/seed/farm-background/1200/400',
   };
@@ -34,7 +34,7 @@ export default function ProfilePage() {
         <CardHeader className="relative -mt-16 flex flex-col items-center text-center sm:flex-row sm:items-end sm:text-left">
           <Avatar className="h-32 w-32 border-4 border-background">
             <AvatarImage src={farmer.avatarUrl} alt={farmer.name} data-ai-hint="farmer avatar" />
-            <AvatarFallback className="text-4xl">FJ</AvatarFallback>
+            <AvatarFallback className="text-4xl">KK</AvatarFallback>
           </Avatar>
           <div className="mt-4 sm:ml-4">
             <CardTitle className="text-2xl font-bold">{farmer.name}</CardTitle>
@@ -73,3 +73,5 @@ export default function ProfilePage() {
     </div>
   );
 }
+
+    

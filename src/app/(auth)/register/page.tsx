@@ -70,7 +70,7 @@ export default function RegisterPage() {
                 <FormItem>
                   <FormLabel>Username</FormLabel>
                   <FormControl>
-                    <Input placeholder="farmer-jane" {...field} />
+                    <Input placeholder="kisan-rani" {...field} />
                   </FormControl>
                   <FormMessage />
                 </FormItem>
@@ -83,7 +83,7 @@ export default function RegisterPage() {
                 <FormItem>
                   <FormLabel>Phone Number</FormLabel>
                   <FormControl>
-                    <Input type="tel" placeholder="123-456-7890" {...field} />
+                    <Input type="tel" placeholder="+91-9876543210" {...field} />
                   </FormControl>
                   <FormMessage />
                 </FormItem>
@@ -119,3 +119,5 @@ export default function RegisterPage() {
     </Card>
   );
 }
+
+    

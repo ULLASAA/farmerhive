@@ -3,7 +3,7 @@ import { Button } from '@/components/ui/button';
 import { Phone } from 'lucide-react';
 
 export default function SupportPage() {
-  const callCenterNumber = '1-800-FARM-CONNECT';
+  const callCenterNumber = '1800-200-5555';
 
   return (
     <div className="container mx-auto flex h-full items-center justify-center px-4 py-8">
@@ -20,7 +20,7 @@ export default function SupportPage() {
             <span className="text-4xl font-bold tracking-wider">{callCenterNumber}</span>
           </div>
           <p className="text-sm text-muted-foreground">
-            Available Monday - Friday, 8 AM - 6 PM
+            Available Monday - Friday, 9 AM - 7 PM IST
           </p>
           <Button asChild size="lg" className="bg-accent text-accent-foreground hover:bg-accent/90">
             <a href={`tel:${callCenterNumber.replace(/-/g, '')}`}>
@@ -33,3 +33,5 @@ export default function SupportPage() {
     </div>
   );
 }
+
+    

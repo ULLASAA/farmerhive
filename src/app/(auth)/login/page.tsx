@@ -68,7 +68,7 @@ export default function LoginPage() {
                 <FormItem>
                   <FormLabel>Username</FormLabel>
                   <FormControl>
-                    <Input placeholder="farmer-john" {...field} />
+                    <Input placeholder="kisan-kumar" {...field} />
                   </FormControl>
                   <FormMessage />
                 </FormItem>
@@ -104,3 +104,5 @@ export default function LoginPage() {
     </Card>
   );
 }
+
+    

@@ -78,7 +78,7 @@ export default function RentPage() {
             </CardContent>
             <CardFooter className="flex items-center justify-between p-4 pt-0">
                 <p className="text-lg font-semibold text-primary">
-                    ${item.price}<span className="text-sm font-normal text-muted-foreground">/day</span>
+                    ₹{item.price}<span className="text-sm font-normal text-muted-foreground">/day</span>
                 </p>
                 <Button asChild className="bg-accent text-accent-foreground hover:bg-accent/90">
                     <Link href={`/bargain/${item.id}`}>Details</Link>
@@ -90,3 +90,5 @@ export default function RentPage() {
     </div>
   );
 }
+
+    

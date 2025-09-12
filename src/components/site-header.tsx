@@ -45,16 +45,16 @@ export function SiteHeader() {
                     alt="Farmer's Avatar"
                     data-ai-hint="farmer avatar"
                   />
-                  <AvatarFallback>FJ</AvatarFallback>
+                  <AvatarFallback>KK</AvatarFallback>
                 </Avatar>
               </Button>
             </DropdownMenuTrigger>
             <DropdownMenuContent className="w-56" align="end" forceMount>
               <DropdownMenuLabel className="font-normal">
                 <div className="flex flex-col space-y-1">
-                  <p className="text-sm font-medium leading-none">Farmer John</p>
+                  <p className="text-sm font-medium leading-none">Kisan Kumar</p>
                   <p className="text-xs leading-none text-muted-foreground">
-                    farmer.john@example.com
+                    kisan.kumar@example.com
                   </p>
                 </div>
               </DropdownMenuLabel>
@@ -81,3 +81,5 @@ export function SiteHeader() {
     </header>
   );
 }
+
+    
