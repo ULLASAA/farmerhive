@@ -56,7 +56,7 @@ export default function BargainPage({ params }: { params: { id: string } }) {
             <CardContent>
               <p className="text-muted-foreground">{item.description}</p>
               <p className="mt-4 text-3xl font-bold text-primary">
-                ₹{item.price.toFixed(2)}
+                Rs {item.price.toFixed(2)}
                 <span className="text-base font-normal text-muted-foreground">
                   /day (listed)
                 </span>
