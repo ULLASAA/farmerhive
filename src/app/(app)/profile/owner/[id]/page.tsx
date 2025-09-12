@@ -1,7 +1,7 @@
 import Image from 'next/image';
 import Link from 'next/link';
 import { notFound } from 'next/navigation';
-import { rentalItems, type RentalItem } from '@/lib/placeholder-images';
+import { rentalItems, type RentalItem, buyableCategories } from '@/lib/placeholder-images';
 import {
   Card,
   CardContent,
