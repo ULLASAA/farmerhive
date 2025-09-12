@@ -85,7 +85,7 @@ function BookingForm({ item, price }: { item: RentalItem, price: number }) {
            <div className="rounded-md border bg-muted p-4">
                 <p className="text-sm font-medium text-muted-foreground">Final Price</p>
                 <p className="text-3xl font-bold">
-                  ₹{price.toFixed(2)}{' '}
+                  ${price.toFixed(2)}{' '}
                   <span className="text-base font-normal">/ day</span>
                 </p>
               </div>
@@ -208,7 +208,7 @@ export default function BargainForm({ item }: { item: RentalItem }) {
               name="price"
               render={({ field }) => (
                 <FormItem>
-                  <FormLabel>Your Offered Price (₹/day)</FormLabel>
+                  <FormLabel>Your Offered Price ($/day)</FormLabel>
                   <FormControl>
                     <Input type="number" step="10" {...field} />
                   </FormControl>
@@ -292,7 +292,7 @@ export default function BargainForm({ item }: { item: RentalItem }) {
                         Suggested Price
                       </p>
                       <p className="text-2xl font-bold text-accent">
-                        ₹{suggestion.suggestedPrice.toFixed(2)}{' '}
+                        ${suggestion.suggestedPrice.toFixed(2)}{' '}
                         <span className="text-base font-normal">/ day</span>
                       </p>
                     </div>
