@@ -15,6 +15,7 @@ import {
   DialogTrigger,
 } from '@/components/ui/dialog';
 import { useState, useEffect } from 'react';
+import PredictiveDemand from './predictive-demand';
 
 // --- Mock Data Simulation ---
 // In a real app, this would come from a database of completed transactions.
@@ -39,7 +40,7 @@ export default function DashboardPage() {
       .map(item => {
         const isSale = buyableCategories.includes(item.category);
         // Simulate a final transaction price, slightly different from list price
-        const transactionPrice = item.price * (Math.random() * (1.1 - 0.9) + 0.9); 
+        const transactionPrice = item.price * (1 + (Math.random() - 0.5) * 0.1); // +/- 10%
         const companyProfit = transactionPrice * COMPANY_COMMISSION_RATE;
         const ownerPayout = transactionPrice - companyProfit;
         const date = new Date(Date.now() - Math.floor(Math.random() * 30) * 24 * 60 * 60 * 1000); // Random date in last 30 days
@@ -184,6 +185,11 @@ export default function DashboardPage() {
             <p className="text-xs text-muted-foreground">Items not returned on time</p>
           </CardContent>
         </Card>
+      </div>
+
+      {/* Predictive Demand Section */}
+      <div className="mb-8">
+        <PredictiveDemand />
       </div>
 
        {/* Security Section */}

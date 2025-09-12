@@ -4,6 +4,10 @@ import {
   getBargainingSuggestion,
   type BargainingSuggestionInput,
 } from '@/ai/flows/bargaining-suggestions';
+import {
+  getPredictiveDemand,
+  type PredictiveDemandInput,
+} from '@/ai/flows/predictive-tool-demand';
 
 export async function generateSuggestions(input: BargainingSuggestionInput) {
   try {
@@ -17,5 +21,15 @@ export async function generateSuggestions(input: BargainingSuggestionInput) {
   } catch (error) {
     console.error('Error generating AI suggestions:', error);
     return { success: false, error: 'Failed to generate bargaining suggestions. Please try again later.' };
+  }
+}
+
+export async function getToolDemandPrediction(input: PredictiveDemandInput) {
+  try {
+    const result = await getPredictiveDemand(input);
+    return { success: true, data: result };
+  } catch (error) {
+    console.error('Error generating tool demand prediction:', error);
+    return { success: false, error: 'Failed to generate prediction. Please try again.' };
   }
 }
