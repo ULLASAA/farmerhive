@@ -72,5 +72,3 @@ export default function BargainPage({ params }: { params: { id: string } }) {
     </div>
   );
 }
-
-    
