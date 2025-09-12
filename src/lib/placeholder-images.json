@@ -21,7 +21,7 @@
       "price": 300,
       "unit": "day",
       "condition": "Good",
-      "imageUrl": "https://picsum.photos/seed/harvester/600/400",
+      "imageUrl": "https://images.unsplash.com/photo-1707680946878-d02775437174?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxM3x8dHJhY3RvciUyMGN1bHRpdmF0b3IlMjB0b29sfGVufDB8fHx8MTc1NzY5NDc3OXww&ixlib=rb-4.1.0&q=80&w=1080",
       "imageHint": "combine harvester"
     },
     {
