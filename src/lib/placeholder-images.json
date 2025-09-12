@@ -61,6 +61,18 @@
       "imageHint": "farm plough"
     },
     {
+      "id": "8",
+      "name": "Irrigation Sprinkler",
+      "description": "Adjustable irrigation sprinkler for efficient water distribution. Covers a wide area.",
+      "category": "tools",
+      "subcategory": "spraying equipment",
+      "price": 40,
+      "unit": "day",
+      "condition": "New",
+      "imageUrl": "https://images.unsplash.com/photo-1591806182241-a6e4bdd59735?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw5fHxpcnJpZ2F0aW9uJTIwc3ByYW5rbGVyfGVufDB8fHx8MTc1NzY5NzU2MXww&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "irrigation sprinkler"
+    },
+    {
       "id": "3",
       "name": "Organic Wheat Seeds",
       "description": "High-quality organic seeds for a healthy crop. Certified and tested for germination.",
@@ -107,18 +119,6 @@
       "condition": "New",
       "imageUrl": "https://images.unsplash.com/photo-1661669037580-4879ceae9ea8?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw2fHxuaXRyb2dlbiUyMGZlcnRpbGl6ZXIlMjBiYWd8ZW58MHx8fHwxNzU3Njk1MzcxfDA&ixlib=rb-4.1.0&q=80&w=1080",
       "imageHint": "fertilizer bags"
-    },
-    {
-      "id": "8",
-      "name": "Irrigation Sprinkler",
-      "description": "Adjustable irrigation sprinkler for efficient water distribution. Covers a wide area.",
-      "category": "tools",
-      "subcategory": "spraying equipment",
-      "price": 40,
-      "unit": "day",
-      "condition": "New",
-      "imageUrl": "https://picsum.photos/seed/sprinkler/600/400",
-      "imageHint": "irrigation sprinkler"
     }
   ]
 }
