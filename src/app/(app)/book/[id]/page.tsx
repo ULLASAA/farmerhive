@@ -36,13 +36,13 @@ const formSchema = z.object({
   }),
 });
 
-export default function BookPage({ params }: { params: { id: string } }) {
+export default function BookPage({ params: { id } }: { params: { id: string } }) {
   const router = useRouter();
   const searchParams = useSearchParams();
   const { toast } = useToast();
   const price = searchParams.get('price');
   
-  const item = rentalItems.find((i) => i.id === params.id);
+  const item = rentalItems.find((i) => i.id === id);
   
   if (!item) {
     notFound();
