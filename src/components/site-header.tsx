@@ -15,7 +15,7 @@ import {
   DropdownMenuTrigger,
 } from '@/components/ui/dropdown-menu';
 import { SidebarTrigger } from '@/components/ui/sidebar';
-import { LogOut, User } from 'lucide-react';
+import { LogOut, User, PlusCircle } from 'lucide-react';
 import { Icons } from './icons';
 
 export function SiteHeader() {
@@ -36,6 +36,12 @@ export function SiteHeader() {
         </div>
 
         <div className="flex flex-1 items-center justify-end space-x-2">
+          <Button asChild>
+              <Link href="/rent/upload">
+                <PlusCircle className="mr-2 h-4 w-4" />
+                Upload Tool
+              </Link>
+          </Button>
           <DropdownMenu>
             <DropdownMenuTrigger asChild>
               <Button variant="ghost" className="relative h-8 w-8 rounded-full">
