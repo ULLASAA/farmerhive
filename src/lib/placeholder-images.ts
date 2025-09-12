@@ -1,4 +1,3 @@
-'use server';
 import type { StaticImageData } from 'next/image';
 import data from './placeholder-images.json';
 
