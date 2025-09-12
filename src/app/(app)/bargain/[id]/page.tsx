@@ -63,16 +63,20 @@ export default function BargainPage({ params }: { params: { id: string } }) {
               <p className="text-muted-foreground">{item.description}</p>
                <Separator className="my-4" />
                <div className="space-y-4">
-                 <div className="flex items-center gap-3">
-                    <Avatar className="h-10 w-10">
-                      <AvatarImage src={item.owner.avatarUrl} alt={item.owner.name} />
-                      <AvatarFallback>{item.owner.name.charAt(0)}</AvatarFallback>
-                    </Avatar>
-                    <div>
-                        <p className="font-semibold text-sm">Owner</p>
-                        <p className="text-muted-foreground">{item.owner.name}</p>
+                 <Button asChild variant="ghost" className="h-auto w-full justify-start p-0">
+                  <Link href={`/profile/owner/${item.owner.id}`}>
+                    <div className="flex items-center gap-3">
+                      <Avatar className="h-10 w-10">
+                        <AvatarImage src={item.owner.avatarUrl} alt={item.owner.name} />
+                        <AvatarFallback>{item.owner.name.charAt(0)}</AvatarFallback>
+                      </Avatar>
+                      <div>
+                          <p className="font-semibold text-sm">Owner</p>
+                          <p className="text-muted-foreground">{item.owner.name}</p>
+                      </div>
                     </div>
-                </div>
+                  </Link>
+                </Button>
                  <div className="flex items-center gap-3">
                     <div className="flex items-center gap-1 text-yellow-500">
                         <Star className="h-5 w-5 fill-current" />

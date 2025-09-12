@@ -12,8 +12,12 @@
       "imageUrl": "https://images.unsplash.com/photo-1619314383191-3d75d5e26a7f?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxfHx0cmFjdG9yJTIwaW1hZ2V8ZW58MHx8fHwxNzU3Njk0MTM3fDA&ixlib=rb-4.1.0&q=80&w=1080",
       "imageHint": "farm tractor",
       "owner": {
+        "id": "owner-1",
         "name": "Gurpreet Singh",
-        "avatarUrl": "https://i.pravatar.cc/150?u=gurpreet"
+        "avatarUrl": "https://i.pravatar.cc/150?u=gurpreet",
+        "email": "gurpreet.singh@example.com",
+        "phone": "+91-9876543211",
+        "address": "12 Main St, Ludhiana, Punjab"
       },
       "reviews": { "rating": 4.8, "count": 25 },
       "availability": { "status": "Available", "nextAvailable": "Today" }
@@ -30,8 +34,12 @@
       "imageUrl": "https://images.unsplash.com/photo-1707680946878-d02775437174?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxM3x8dHJhY3RvciUyMGN1bHRpdmF0b3IlMjB0b29sfGVufDB8fHx8MTc1NzY5NDc3OXww&ixlib=rb-4.1.0&q=80&w=1080",
       "imageHint": "combine harvester",
       "owner": {
+        "id": "owner-2",
         "name": "Harman Kaur",
-        "avatarUrl": "https://i.pravatar.cc/150?u=harman"
+        "avatarUrl": "https://i.pravatar.cc/150?u=harman",
+        "email": "harman.kaur@example.com",
+        "phone": "+91-9876543212",
+        "address": "45 Market Rd, Amritsar, Punjab"
       },
       "reviews": { "rating": 4.5, "count": 18 },
       "availability": { "status": "Rented Out", "nextAvailable": "In 2 days" }
@@ -48,8 +56,12 @@
       "imageUrl": "https://images.unsplash.com/photo-1599581977221-c3861f10704a?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwzfHxwbG91Z2glMjBhdHRhY2htZW50JTIwdG9vbCUyMGJpZ3xlbnwwfHx8fDE3NTc2OTgwMDh8MA&ixlib=rb-4.1.0&q=80&w=1080",
       "imageHint": "farm plow",
       "owner": {
+        "id": "owner-3",
         "name": "Balwinder Singh",
-        "avatarUrl": "https://i.pravatar.cc/150?u=balwinder"
+        "avatarUrl": "https://i.pravatar.cc/150?u=balwinder",
+        "email": "balwinder.singh@example.com",
+        "phone": "+91-9876543213",
+        "address": "78 Village Path, Jalandhar, Punjab"
       },
       "reviews": { "rating": 4.2, "count": 32 },
       "availability": { "status": "Available", "nextAvailable": "Today" }
@@ -66,8 +78,12 @@
       "imageUrl": "https://images.unsplash.com/photo-1594691592645-3f8351f04e84?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxMXx8c2VlZGVyJTIwdG9vbCUyMGFncmljdWx0dXJlfGVufDB8fHx8MTc1NzY5NjkzN3ww&ixlib=rb-4.1.0&q=80&w=1080",
       "imageHint": "farm seeder",
       "owner": {
+        "id": "owner-4",
         "name": "Manpreet Kaur",
-        "avatarUrl": "https://i.pravatar.cc/150?u=manpreet"
+        "avatarUrl": "https://i.pravatar.cc/150?u=manpreet",
+        "email": "manpreet.kaur@example.com",
+        "phone": "+91-9876543214",
+        "address": "90 Farm Lane, Patiala, Punjab"
       },
       "reviews": { "rating": 4.6, "count": 12 },
       "availability": { "status": "Available", "nextAvailable": "Today" }
@@ -81,11 +97,15 @@
       "price": 70,
       "unit": "day",
       "condition": "Good",
-      "imageUrl": "https://images.unsplash.com/photo-1692264204894-384f506778a8?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxOHx8cGxvdWdoZXIlMjB0b29sJTIwYWdyaWN1bHR1cmV8ZW58MHx8fHwxNzU3Njk3MDEyfDA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageUrl": "https://images.unsplash.com/photo-1692264204894-384f506778a8?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxOHx8cGxvdWdoZXIlMjB0b29sJTIwYWdyaWN1bHR1cmV8ZW58MHx8fHwxNzU3Njk3MDEyfDA&ixlib-rb-4.1.0&q=80&w=1080",
       "imageHint": "farm plough",
       "owner": {
+        "id": "owner-5",
         "name": "Jaswinder Singh",
-        "avatarUrl": "https://i.pravatar.cc/150?u=jaswinder"
+        "avatarUrl": "https://i.pravatar.cc/150?u=jaswinder",
+        "email": "jaswinder.singh@example.com",
+        "phone": "+91-9876543215",
+        "address": "34 Green Valley, Firozpur, Punjab"
       },
       "reviews": { "rating": 4.3, "count": 21 },
       "availability": { "status": "Rented Out", "nextAvailable": "Tomorrow" }
@@ -102,8 +122,12 @@
       "imageUrl": "https://images.unsplash.com/photo-1591806182241-a6e4bdd59735?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw5fHxpcnJpZ2F0aW9uJTIwc3ByYW5rbGVyfGVufDB8fHx8MTc1NzY5NzU2MXww&ixlib=rb-4.1.0&q=80&w=1080",
       "imageHint": "irrigation sprinkler",
       "owner": {
+        "id": "owner-6",
         "name": "Amrita Kaur",
-        "avatarUrl": "https://i.pravatar.cc/150?u=amrita"
+        "avatarUrl": "https://i.pravatar.cc/150?u=amrita",
+        "email": "amrita.kaur@example.com",
+        "phone": "+91-9876543216",
+        "address": "56 Canal Rd, Bathinda, Punjab"
       },
       "reviews": { "rating": 4.9, "count": 40 },
       "availability": { "status": "Available", "nextAvailable": "Today" }
@@ -117,11 +141,15 @@
       "price": 550,
       "unit": "container",
       "condition": "New",
-      "imageUrl": "https://images.unsplash.com/photo-1653543362966-a97e081f3086?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxOXx8cGVzdGljaWRlJTIwYmFnfGVufDB8fHx8MTc1NzY5ODI2M3ww&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageUrl": "https://images.unsplash.com/photo-1653543362966-a97e081f3086?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxOXx8cGVzdGljaWRlJTIwYmFnfGVufDB8fHx8MTc1NzY5ODI2M3ww&ixlib-rb-4.1.0&q=80&w=1080",
       "imageHint": "pesticide bottle",
       "owner": {
+        "id": "owner-7",
         "name": "Punjab Agro",
-        "avatarUrl": "https://i.pravatar.cc/150?u=punjab-agro"
+        "avatarUrl": "https://i.pravatar.cc/150?u=punjab-agro",
+        "email": "contact@punjabagro.com",
+        "phone": "+91-172-1234567",
+        "address": "Agri Complex, Sector 28, Chandigarh"
       },
       "reviews": { "rating": 4.7, "count": 150 },
       "availability": { "status": "Available", "nextAvailable": "In Stock" }
@@ -135,11 +163,15 @@
       "price": 1200,
       "unit": "bag",
       "condition": "New",
-      "imageUrl": "https://images.unsplash.com/photo-1661669037580-4879ceae9ea8?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw2fHxuaXRyb2dlbiUyMGZlcnRpbGl6ZXIlMjBiYWd8ZW58MHx8fHwxNzU3Njk1MzcxfDA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageUrl": "https://images.unsplash.com/photo-1661669037580-4879ceae9ea8?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw2fHxuaXRyb2dlbiUyMGZlcnRpbGl6ZXIlMjBiYWd8ZW58MHx8fHwxNzU3Njk1MzcxfDA&ixlib-rb-4.1.0&q=80&w=1080",
       "imageHint": "fertilizer bag",
       "owner": {
+        "id": "owner-8",
         "name": "Modern Kheti",
-        "avatarUrl": "https://i.pravatar.cc/150?u=modern-kheti"
+        "avatarUrl": "https://i.pravatar.cc/150?u=modern-kheti",
+        "email": "sales@modernkheti.com",
+        "phone": "+91-161-9876543",
+        "address": "Industrial Area, Ludhiana, Punjab"
       },
       "reviews": { "rating": 4.8, "count": 210 },
       "availability": { "status": "Available", "nextAvailable": "In Stock" }
@@ -153,11 +185,15 @@
       "price": 300,
       "unit": "bag",
       "condition": "New",
-      "imageUrl": "https://images.unsplash.com/photo-1641912593355-134c57c76246?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxfHxjb3JuJTIwc2VlZHN8ZW58MHx8fHwxNzU3Njk4MzY5fDA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageUrl": "https://images.unsplash.com/photo-1641912593355-134c57c76246?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxfHxjb3JuJTIwc2VlZHN8ZW58MHx8fHwxNzU3Njk4MzY5fDA&ixlib-rb-4.1.0&q=80&w=1080",
       "imageHint": "corn seeds",
       "owner": {
+        "id": "owner-9",
         "name": "Farm Fresh Seeds",
-        "avatarUrl": "https://i.pravatar.cc/150?u=farm-fresh"
+        "avatarUrl": "https://i.pravatar.cc/150?u=farm-fresh",
+        "email": "info@farmfreshseeds.com",
+        "phone": "+91-9988776655",
+        "address": "Seed Market, Khanna, Punjab"
       },
       "reviews": { "rating": 4.9, "count": 300 },
       "availability": { "status": "Available", "nextAvailable": "In Stock" }
@@ -171,11 +207,15 @@
       "price": 350,
       "unit": "bag",
       "condition": "New",
-      "imageUrl": "https://images.unsplash.com/photo-1594020665228-255d12d3084d?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwyfHx3aGVhdCUyMHNlZWRzfGVufDB8fHx8MTc1NzY5ODQyN3ww&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageUrl": "https://images.unsplash.com/photo-1594020665228-255d12d3084d?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwyfHx3aGVhdCUyMHNlZWRzfGVufDB8fHx8MTc1NzY5ODQyN3ww&ixlib-rb-4.1.0&q=80&w=1080",
       "imageHint": "wheat seeds",
       "owner": {
+        "id": "owner-9",
         "name": "Farm Fresh Seeds",
-        "avatarUrl": "https://i.pravatar.cc/150?u=farm-fresh"
+        "avatarUrl": "https://i.pravatar.cc/150?u=farm-fresh",
+        "email": "info@farmfreshseeds.com",
+        "phone": "+91-9988776655",
+        "address": "Seed Market, Khanna, Punjab"
       },
       "reviews": { "rating": 4.8, "count": 180 },
       "availability": { "status": "Available", "nextAvailable": "In Stock" }

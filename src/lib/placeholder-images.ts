@@ -13,8 +13,12 @@ export type RentalItem = {
   imageUrl: string;
   imageHint: string;
   owner: {
+    id: string;
     name: string;
     avatarUrl: string;
+    email: string;
+    phone: string;
+    address: string;
   };
   reviews: {
     rating: number;
