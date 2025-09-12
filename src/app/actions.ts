@@ -8,6 +8,10 @@ import {
   getPredictiveDemand,
   type PredictiveDemandInput,
 } from '@/ai/flows/predictive-tool-demand';
+import {
+  getRegionalAnalysis,
+  type RegionalAnalysisInput,
+} from '@/ai/flows/regional-analysis';
 
 export async function generateSuggestions(input: BargainingSuggestionInput) {
   try {
@@ -31,5 +35,18 @@ export async function getToolDemandPrediction(input: PredictiveDemandInput) {
   } catch (error) {
     console.error('Error generating tool demand prediction:', error);
     return { success: false, error: 'Failed to generate prediction. Please try again.' };
+  }
+}
+
+export async function getFullDemandAnalysis(input: RegionalAnalysisInput & PredictiveDemandInput) {
+  try {
+    const [analysisResult, predictionResult] = await Promise.all([
+      getRegionalAnalysis(input),
+      getPredictiveDemand(input),
+    ]);
+    return { success: true, data: { analysis: analysisResult, predictions: predictionResult } };
+  } catch (error) {
+    console.error('Error generating full demand analysis:', error);
+    return { success: false, error: 'Failed to generate the full analysis. Please try again.' };
   }
 }

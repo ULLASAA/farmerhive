@@ -121,7 +121,13 @@ export default function DashboardPage() {
 
   return (
     <div className="container mx-auto px-4 py-8">
-      <h1 className="mb-8 text-3xl font-bold tracking-tight">Company Dashboard</h1>
+      <h1 className="mb-4 text-3xl font-bold tracking-tight">Company Dashboard</h1>
+      <p className="mb-8 text-lg text-muted-foreground">Welcome back, here's an overview of your platform's performance and market insights.</p>
+      
+      {/* Predictive Demand Section */}
+      <div className="mb-8">
+        <PredictiveDemand />
+      </div>
       
       {/* Key Metrics */}
       <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-6 mb-8">
@@ -185,11 +191,6 @@ export default function DashboardPage() {
             <p className="text-xs text-muted-foreground">Items not returned on time</p>
           </CardContent>
         </Card>
-      </div>
-
-      {/* Predictive Demand Section */}
-      <div className="mb-8">
-        <PredictiveDemand />
       </div>
 
        {/* Security Section */}

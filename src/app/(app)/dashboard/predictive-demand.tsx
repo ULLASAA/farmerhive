@@ -5,9 +5,10 @@ import { Card, CardContent, CardHeader, CardTitle, CardDescription } from '@/com
 import { Button } from '@/components/ui/button';
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
 import { useToast } from '@/hooks/use-toast';
-import { getToolDemandPrediction } from '@/app/actions';
+import { getFullDemandAnalysis } from '@/app/actions';
 import type { PredictiveDemandInput, PredictiveDemandOutput } from '@/ai/schemas/predictive-tool-demand';
-import { Loader2, BrainCircuit, BarChart, LineChart, TrendingUp, TrendingDown, Tractor } from 'lucide-react';
+import type { RegionalAnalysisOutput } from '@/ai/flows/regional-analysis';
+import { Loader2, BrainCircuit, BarChart, LineChart, TrendingUp, TrendingDown, Wheat, Sun, CloudRain } from 'lucide-react';
 import { Alert, AlertDescription, AlertTitle } from '@/components/ui/alert';
 import { Separator } from '@/components/ui/separator';
 
@@ -15,25 +16,30 @@ type Season = 'Kharif (Monsoon)' | 'Rabi (Winter)' | 'Zaid (Summer)';
 
 const historicalDataSummary = "Past rentals show high demand for tractors and harvesters year-round. Plows and seeders peak pre-monsoon and pre-winter. Irrigation tools are most popular in the dry summer months.";
 
+type FullAnalysis = {
+  analysis: RegionalAnalysisOutput;
+  predictions: PredictiveDemandOutput;
+}
+
 export default function PredictiveDemand() {
   const { toast } = useToast();
   const [season, setSeason] = useState<Season>('Kharif (Monsoon)');
   const [isLoading, setIsLoading] = useState(false);
-  const [prediction, setPrediction] = useState<PredictiveDemandOutput | null>(null);
+  const [analysis, setAnalysis] = useState<FullAnalysis | null>(null);
 
   const handleGeneratePrediction = async () => {
     setIsLoading(true);
-    setPrediction(null);
+    setAnalysis(null);
     try {
       const input: PredictiveDemandInput = {
         region: 'Punjab',
         season: season,
         historicalData: historicalDataSummary,
       };
-      const result = await getToolDemandPrediction(input);
+      const result = await getFullDemandAnalysis(input);
 
       if (result.success && result.data) {
-        setPrediction(result.data);
+        setAnalysis(result.data);
       } else {
         toast({
           variant: 'destructive',
@@ -55,32 +61,40 @@ export default function PredictiveDemand() {
   const getDemandIcon = (demand: 'High' | 'Medium' | 'Low') => {
     switch (demand) {
       case 'High':
-        return <TrendingUp className="h-5 w-5 text-green-500" />;
+        return <TrendingUp className="h-6 w-6 text-green-500" />;
       case 'Medium':
-        return <LineChart className="h-5 w-5 text-yellow-500" />;
+        return <LineChart className="h-6 w-6 text-yellow-500" />;
       case 'Low':
-        return <TrendingDown className="h-5 w-5 text-red-500" />;
+        return <TrendingDown className="h-6 w-6 text-red-500" />;
       default:
-        return <BarChart className="h-5 w-5 text-muted-foreground" />;
+        return <BarChart className="h-6 w-6 text-muted-foreground" />;
     }
   };
+  
+  const getSeasonIcon = (selectedSeason: Season) => {
+    switch(selectedSeason) {
+      case 'Kharif (Monsoon)': return <CloudRain className="h-5 w-5 text-blue-500" />;
+      case 'Rabi (Winter)': return <Wheat className="h-5 w-5 text-amber-500" />;
+      case 'Zaid (Summer)': return <Sun className="h-5 w-5 text-orange-500" />;
+    }
+  }
 
 
   return (
-    <Card className="lg:col-span-3">
-      <CardHeader>
-        <CardTitle className="flex items-center gap-2">
-          <BrainCircuit className="text-primary" />
-          Predictive Tool Demand
-        </CardTitle>
-        <CardDescription>
-          Use AI to forecast tool demand for the upcoming farming season in Punjab.
-        </CardDescription>
-      </CardHeader>
-      <CardContent className="space-y-4">
-        <div className="flex flex-col gap-2 sm:flex-row">
-          <Select value={season} onValueChange={(value) => setSeason(value as Season)}>
-            <SelectTrigger className="flex-1">
+    <div className="rounded-xl border bg-card text-card-foreground shadow-lg">
+      <CardHeader className="flex-row items-center justify-between">
+        <div>
+            <CardTitle className="flex items-center gap-3 text-2xl">
+                <BrainCircuit className="text-primary" size={28} />
+                AI Demand Forecast
+            </CardTitle>
+            <CardDescription className="mt-2 text-base">
+                Predictive analysis for tool rental demand in Punjab.
+            </CardDescription>
+        </div>
+        <div className="flex items-center gap-2">
+           <Select value={season} onValueChange={(value) => setSeason(value as Season)}>
+            <SelectTrigger className="w-[200px]">
               <SelectValue placeholder="Select a season" />
             </SelectTrigger>
             <SelectContent>
@@ -89,50 +103,64 @@ export default function PredictiveDemand() {
               <SelectItem value="Zaid (Summer)">Zaid (Summer)</SelectItem>
             </SelectContent>
           </Select>
-          <Button onClick={handleGeneratePrediction} disabled={isLoading} className="w-full sm:w-auto">
+          <Button onClick={handleGeneratePrediction} disabled={isLoading} size="lg">
             {isLoading ? (
-              <Loader2 className="mr-2 h-4 w-4 animate-spin" />
+              <Loader2 className="mr-2 h-5 w-5 animate-spin" />
             ) : (
-              <BrainCircuit className="mr-2 h-4 w-4" />
+              <BrainCircuit className="mr-2 h-5 w-5" />
             )}
-            Analyze Demand
+            Analyze
           </Button>
         </div>
-
+      </CardHeader>
+      <CardContent className="pt-4">
         {isLoading && (
-          <div className="flex items-center justify-center rounded-md border p-6 text-center">
-            <Loader2 className="mr-2 h-6 w-6 animate-spin" />
-            <span className="text-lg">AI is analyzing market trends...</span>
+          <div className="flex flex-col items-center justify-center rounded-lg border-2 border-dashed p-12 text-center">
+            <Loader2 className="h-12 w-12 animate-spin text-primary" />
+            <p className="mt-4 text-lg font-semibold">AI is analyzing market data...</p>
+            <p className="text-muted-foreground">This may take a moment. Please wait.</p>
           </div>
         )}
 
-        {prediction && (
-          <div className="space-y-4 pt-4">
-             <Alert>
-                <Tractor className="h-4 w-4" />
-                <AlertTitle>AI Analysis for {season} Season</AlertTitle>
-                <AlertDescription>
-                    Based on seasonal patterns and historical data, here are the predicted tool needs.
+        {!isLoading && !analysis && (
+             <div className="flex flex-col items-center justify-center rounded-lg border-2 border-dashed p-12 text-center">
+                <BrainCircuit className="h-12 w-12 text-muted-foreground" />
+                <p className="mt-4 text-lg font-semibold">Ready for Analysis</p>
+                <p className="text-muted-foreground">Select a season and click "Analyze" to generate a demand forecast.</p>
+            </div>
+        )}
+
+        {analysis && (
+          <div className="space-y-6">
+             <Alert className="border-primary/50 bg-primary/5 text-primary-foreground">
+                <div className="flex items-center gap-3">
+                   {getSeasonIcon(season)}
+                   <AlertTitle className="text-lg font-semibold text-primary">AI Analysis for {season} Season</AlertTitle>
+                </div>
+                <AlertDescription className="text-primary/90 mt-2">
+                    {analysis.analysis.analysis}
                 </AlertDescription>
             </Alert>
-            <div className="grid gap-4 sm:grid-cols-2">
-              {prediction.predictions.map((pred, index) => (
-                <div key={index} className="rounded-lg border p-4 space-y-2">
-                  <div className="flex items-center justify-between">
-                     <h3 className="font-semibold text-lg">{pred.toolName}</h3>
-                     <div className="flex items-center gap-2 text-sm font-medium">
-                        {getDemandIcon(pred.predictedDemand)}
-                        <span>{pred.predictedDemand} Demand</span>
+            <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+              {analysis.predictions.predictions.map((pred, index) => (
+                <Card key={index} className="flex flex-col">
+                  <CardHeader className="flex-row items-center justify-between pb-2">
+                     <CardTitle className="text-xl font-bold">{pred.toolName}</CardTitle>
+                     {getDemandIcon(pred.predictedDemand)}
+                  </CardHeader>
+                  <CardContent className="flex-grow space-y-2">
+                     <div className={`text-lg font-semibold ${pred.predictedDemand === 'High' ? 'text-green-500' : pred.predictedDemand === 'Medium' ? 'text-yellow-500' : 'text-red-500'}`}>
+                        {pred.predictedDemand} Demand
                      </div>
-                  </div>
-                  <Separator />
-                  <p className="text-sm text-muted-foreground">{pred.reasoning}</p>
-                </div>
+                     <Separator />
+                     <p className="text-sm text-muted-foreground pt-2">{pred.reasoning}</p>
+                  </CardContent>
+                </Card>
               ))}
             </div>
           </div>
         )}
       </CardContent>
-    </Card>
+    </div>
   );
 }
