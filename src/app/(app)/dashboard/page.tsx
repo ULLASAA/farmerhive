@@ -14,77 +14,109 @@ import {
   DialogTitle,
   DialogTrigger,
 } from '@/components/ui/dialog';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 
 // --- Mock Data Simulation ---
 // In a real app, this would come from a database of completed transactions.
 
 const COMPANY_COMMISSION_RATE = 0.15; // 15% commission
 
-const transactions = rentalItems
-  // Simulate that some items have been successfully rented or sold
-  .filter((_, index) => index % 2 === 0) 
-  .map(item => {
-    const isSale = buyableCategories.includes(item.category);
-    // Simulate a final transaction price, slightly different from list price
-    const transactionPrice = item.price * (Math.random() * (1.1 - 0.9) + 0.9); 
-    const companyProfit = transactionPrice * COMPANY_COMMISSION_RATE;
-    const ownerPayout = transactionPrice - companyProfit;
-    const date = new Date(Date.now() - Math.floor(Math.random() * 30) * 24 * 60 * 60 * 1000); // Random date in last 30 days
-
-    return {
-      ...item,
-      transactionType: isSale ? 'Sale' : 'Rental',
-      transactionPrice,
-      companyProfit,
-      ownerPayout,
-      date,
-    };
-  });
-
-const overdueItems = rentalItems
-  .filter((item, index) => item.availability.status === 'Rented Out' && index % 3 === 0)
-  .map((item, index) => ({
-    ...item,
-    renter: { name: index % 2 === 0 ? 'Vijay Singh' : 'Anita Sharma' },
-    dueDate: new Date(Date.now() - (index + 2) * 24 * 60 * 60 * 1000), // Due 2-4 days ago
-    penalty: (index + 1) * 50,
-    lastLocation: { lat: 30.89 + (Math.random() - 0.5) * 0.1, lng: 75.83 + (Math.random() - 0.5) * 0.1 },
-  }));
-
 const daysOverdue = (dueDate: Date) => {
     const diff = new Date().getTime() - dueDate.getTime();
     return Math.max(0, Math.floor(diff / (1000 * 60 * 60 * 24)));
 }
 
-// --- Calculations ---
-const totalRevenue = transactions.reduce((acc, t) => acc + t.transactionPrice, 0);
-const totalOwnerPayouts = transactions.reduce((acc, t) => acc + t.ownerPayout, 0);
-const totalCompanyProfit = transactions.reduce((acc, t) => acc + t.companyProfit, 0);
-const totalRentals = transactions.filter(t => t.transactionType === 'Rental').length;
-const totalSales = transactions.filter(t => t.transactionType === 'Sale').length;
-const companyProfitMargin = totalRevenue > 0 ? (totalCompanyProfit / totalRevenue) * 100 : 0;
-const farmerSharePercentage = totalRevenue > 0 ? (totalOwnerPayouts / totalRevenue) * 100 : 0;
-
-
-const revenueByCategory = transactions.reduce((acc, t) => {
-  if (!acc[t.category]) {
-    acc[t.category] = 0;
-  }
-  acc[t.category] += t.companyProfit;
-  return acc;
-}, {} as Record<string, number>);
-
-const chartData = Object.entries(revenueByCategory).map(([name, profit]) => ({
-  name: name.charAt(0).toUpperCase() + name.slice(1), // Capitalize category name
-  profit: parseFloat(profit.toFixed(2)),
-}));
 
 // --- Component ---
 export default function DashboardPage() {
   const [selectedLocation, setSelectedLocation] = useState<{lat: number, lng: number} | null>(null);
+  const [dashboardData, setDashboardData] = useState<any>(null);
+
+  useEffect(() => {
+    const transactions = rentalItems
+      // Simulate that some items have been successfully rented or sold
+      .filter((_, index) => index % 2 === 0) 
+      .map(item => {
+        const isSale = buyableCategories.includes(item.category);
+        // Simulate a final transaction price, slightly different from list price
+        const transactionPrice = item.price * (Math.random() * (1.1 - 0.9) + 0.9); 
+        const companyProfit = transactionPrice * COMPANY_COMMISSION_RATE;
+        const ownerPayout = transactionPrice - companyProfit;
+        const date = new Date(Date.now() - Math.floor(Math.random() * 30) * 24 * 60 * 60 * 1000); // Random date in last 30 days
+
+        return {
+          ...item,
+          transactionType: isSale ? 'Sale' : 'Rental',
+          transactionPrice,
+          companyProfit,
+          ownerPayout,
+          date,
+        };
+      });
+
+    const overdueItems = rentalItems
+      .filter((item, index) => item.availability.status === 'Rented Out' && index % 3 === 0)
+      .map((item, index) => ({
+        ...item,
+        renter: { name: index % 2 === 0 ? 'Vijay Singh' : 'Anita Sharma' },
+        dueDate: new Date(Date.now() - (index + 2) * 24 * 60 * 60 * 1000), // Due 2-4 days ago
+        penalty: (index + 1) * 50,
+        lastLocation: { lat: 30.89 + (Math.random() - 0.5) * 0.1, lng: 75.83 + (Math.random() - 0.5) * 0.1 },
+      }));
+
+    // --- Calculations ---
+    const totalRevenue = transactions.reduce((acc, t) => acc + t.transactionPrice, 0);
+    const totalOwnerPayouts = transactions.reduce((acc, t) => acc + t.ownerPayout, 0);
+    const totalCompanyProfit = transactions.reduce((acc, t) => acc + t.companyProfit, 0);
+    const totalRentals = transactions.filter(t => t.transactionType === 'Rental').length;
+    const totalSales = transactions.filter(t => t.transactionType === 'Sale').length;
+    const companyProfitMargin = totalRevenue > 0 ? (totalCompanyProfit / totalRevenue) * 100 : 0;
+    const farmerSharePercentage = totalRevenue > 0 ? (totalOwnerPayouts / totalRevenue) * 100 : 0;
+
+    const revenueByCategory = transactions.reduce((acc, t) => {
+      if (!acc[t.category]) {
+        acc[t.category] = 0;
+      }
+      acc[t.category] += t.companyProfit;
+      return acc;
+    }, {} as Record<string, number>);
+
+    const chartData = Object.entries(revenueByCategory).map(([name, profit]) => ({
+      name: name.charAt(0).toUpperCase() + name.slice(1), // Capitalize category name
+      profit: parseFloat(profit.toFixed(2)),
+    }));
+
+    setDashboardData({
+      transactions,
+      overdueItems,
+      totalRevenue,
+      totalOwnerPayouts,
+      totalCompanyProfit,
+      totalRentals,
+      totalSales,
+      companyProfitMargin,
+      farmerSharePercentage,
+      chartData,
+    });
+  }, []);
 
   const mapEmbedUrl = (lat: number, lng: number) => `https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d1000!2d${lng}!3d${lat}!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e0!3m2!1sen!2sin!4v1678886400000`;
+  
+  if (!dashboardData) {
+    // You can return a loading spinner or skeleton loaders here
+    return <div>Loading dashboard...</div>;
+  }
+  
+  const { 
+    transactions, 
+    overdueItems, 
+    totalCompanyProfit, 
+    totalRentals, 
+    totalSales, 
+    companyProfitMargin, 
+    farmerSharePercentage,
+    chartData 
+  } = dashboardData;
 
   return (
     <div className="container mx-auto px-4 py-8">
@@ -179,7 +211,7 @@ export default function DashboardPage() {
                     </TableRow>
                   </TableHeader>
                   <TableBody>
-                    {overdueItems.map((item) => (
+                    {overdueItems.map((item: any) => (
                       <TableRow key={item.id} className="bg-background">
                         <TableCell className="font-medium">{item.name}</TableCell>
                         <TableCell>{item.renter.name}</TableCell>
@@ -286,7 +318,7 @@ export default function DashboardPage() {
                 </TableRow>
               </TableHeader>
               <TableBody>
-                {transactions.slice(0, 5).map((t) => (
+                {transactions.slice(0, 5).map((t:any) => (
                   <TableRow key={t.id}>
                     <TableCell>
                       <div className="font-medium">{t.name}</div>
