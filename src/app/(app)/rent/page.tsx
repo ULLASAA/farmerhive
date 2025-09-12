@@ -68,11 +68,12 @@ export default function RentPage() {
               </div>
             </CardHeader>
             <CardContent className="flex-grow p-4">
-              <div className="mb-2 flex items-center justify-between">
+              <div className="mb-2 flex items-start justify-between">
                 <CardTitle className="text-lg">{item.name}</CardTitle>
-                <Badge variant="secondary" className="capitalize">{item.category}</Badge>
+                <Badge variant="outline" className="ml-2 shrink-0">{item.condition}</Badge>
               </div>
-              <CardDescription className="line-clamp-3 text-sm">
+               <Badge variant="secondary" className="capitalize">{item.category}</Badge>
+              <CardDescription className="line-clamp-3 text-sm mt-2">
                 {item.description}
               </CardDescription>
             </CardContent>
@@ -90,5 +91,3 @@ export default function RentPage() {
     </div>
   );
 }
-
-    
