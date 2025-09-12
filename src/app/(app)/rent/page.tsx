@@ -21,6 +21,7 @@ import {
 import { Badge } from '@/components/ui/badge';
 import { rentalItems, categories, type RentalItem } from '@/lib/placeholder-images';
 import { Button } from '@/components/ui/button';
+import { PlusCircle } from 'lucide-react';
 
 export default function RentPage() {
   const [filter, setFilter] = useState('all');
@@ -33,20 +34,26 @@ export default function RentPage() {
     <div className="container mx-auto px-4 py-8">
       <div className="mb-8 flex flex-col items-center justify-between gap-4 md:flex-row">
         <h1 className="text-3xl font-bold tracking-tight">Available for Rent</h1>
-        <div className="w-full md:w-auto">
-          <Select onValueChange={setFilter} defaultValue="all">
-            <SelectTrigger className="w-full md:w-[180px]">
-              <SelectValue placeholder="Filter by category" />
-            </SelectTrigger>
-            <SelectContent>
-              <SelectItem value="all">All Categories</SelectItem>
-              {categories.map((category) => (
-                <SelectItem key={category} value={category} className="capitalize">
-                  {category}
-                </SelectItem>
-              ))}
-            </SelectContent>
-          </Select>
+        <div className="flex items-center gap-2">
+            <Select onValueChange={setFilter} defaultValue="all">
+                <SelectTrigger className="w-full md:w-[180px]">
+                <SelectValue placeholder="Filter by category" />
+                </SelectTrigger>
+                <SelectContent>
+                <SelectItem value="all">All Categories</SelectItem>
+                {categories.map((category) => (
+                    <SelectItem key={category} value={category} className="capitalize">
+                    {category}
+                    </SelectItem>
+                ))}
+                </SelectContent>
+            </Select>
+             <Button asChild>
+              <Link href="/rent/upload">
+                <PlusCircle className="mr-2 h-4 w-4" />
+                Upload
+              </Link>
+            </Button>
         </div>
       </div>
 
