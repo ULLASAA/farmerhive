@@ -34,7 +34,7 @@ import { useToast } from '@/hooks/use-toast';
 import { generateSuggestions } from '@/app/actions';
 import type { RentalItem } from '@/lib/placeholder-images';
 import type { BargainingSuggestionOutput } from '@/ai/flows/bargaining-suggestions';
-import { Loader2, Sparkles, Lightbulb, ShoppingCart } from 'lucide-react';
+import { Loader2, Sparkles, Lightbulb, ShoppingCart, CreditCard } from 'lucide-react';
 import { Alert, AlertDescription, AlertTitle } from '@/components/ui/alert';
 import { RadioGroup, RadioGroupItem } from '@/components/ui/radio-group';
 import { useRouter } from 'next/navigation';
@@ -45,115 +45,11 @@ const bargainFormSchema = z.object({
   delivery: z.string().min(1, 'Please select a delivery option.'),
 });
 
-const bookingFormSchema = z.object({
-  address: z.string().min(10, 'Please enter a full delivery address.'),
-  paymentMethod: z.enum(['card', 'cash', 'transfer'], {
-    required_error: 'You need to select a payment method.',
-  }),
-});
-
-function BookingForm({ item, price }: { item: RentalItem, price: number }) {
-  const router = useRouter();
-  const { toast } = useToast();
-
-  const form = useForm<z.infer<typeof bookingFormSchema>>({
-    resolver: zodResolver(bookingFormSchema),
-    defaultValues: {
-      address: '123 Kisan Nagar, Anaj Mandi, Punjab 141001',
-      paymentMethod: 'card',
-    },
-  });
-
-  function onSubmit(values: z.infer<typeof bookingFormSchema>) {
-    console.log({
-      itemId: item?.id,
-      finalPrice: price,
-      ...values,
-    });
-    toast({
-      title: 'Booking Confirmed!',
-      description: `Your rental of ${item.name} has been successfully booked.`,
-    });
-    router.push('/rent');
-  }
-
-  return (
-    <div className="mt-4 space-y-4">
-       <AlertTitle className="text-accent">Confirm Your Booking</AlertTitle>
-      <Form {...form}>
-        <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-4">
-           <div className="rounded-md border bg-muted p-4">
-                <p className="text-sm font-medium text-muted-foreground">Final Price</p>
-                <p className="text-3xl font-bold">
-                  Rs {price.toFixed(2)}{' '}
-                  <span className="text-base font-normal">/ day</span>
-                </p>
-              </div>
-          <FormField
-            control={form.control}
-            name="address"
-            render={({ field }) => (
-              <FormItem>
-                <FormLabel>Delivery Address</FormLabel>
-                <FormControl>
-                  <Input placeholder="Your full address" {...field} />
-                </FormControl>
-                <FormMessage />
-              </FormItem>
-            )}
-          />
-          <FormField
-            control={form.control}
-            name="paymentMethod"
-            render={({ field }) => (
-              <FormItem>
-                <FormLabel>Payment Method</FormLabel>
-                <FormControl>
-                  <RadioGroup
-                    onValueChange={field.onChange}
-                    defaultValue={field.value}
-                    className="flex flex-col space-y-1"
-                  >
-                    <FormItem className="flex items-center space-x-3 space-y-0">
-                      <FormControl>
-                        <RadioGroupItem value="card" />
-                      </FormControl>
-                      <FormLabel className="font-normal">Credit/Debit Card</FormLabel>
-                    </FormItem>
-                    <FormItem className="flex items-center space-x-3 space-y-0">
-                      <FormControl>
-                        <RadioGroupItem value="cash" />
-                      </FormControl>
-                      <FormLabel className="font-normal">Cash on Delivery</FormLabel>
-                    </FormItem>
-                    <FormItem className="flex items-center space-x-3 space-y-0">
-                      <FormControl>
-                        <RadioGroupItem value="transfer" />
-                      </FormControl>
-                      <FormLabel className="font-normal">Bank Transfer (UPI)</FormLabel>
-                    </FormItem>
-                  </RadioGroup>
-                </FormControl>
-                <FormMessage />
-              </FormItem>
-            )}
-          />
-          <Button type="submit" className="w-full">
-            <ShoppingCart className="mr-2 h-4 w-4" />
-            Confirm & Rent
-          </Button>
-        </form>
-      </Form>
-    </div>
-  );
-}
-
 
 export default function BargainForm({ item }: { item: RentalItem }) {
   const { toast } = useToast();
   const [isLoading, setIsLoading] = useState(false);
-  const [suggestion, setSuggestion] =
-    useState<BargainingSuggestionOutput | null>(null);
+  const router = useRouter();
 
   const form = useForm<z.infer<typeof bargainFormSchema>>({
     resolver: zodResolver(bargainFormSchema),
@@ -166,30 +62,8 @@ export default function BargainForm({ item }: { item: RentalItem }) {
 
   async function onSubmit(values: z.infer<typeof bargainFormSchema>) {
     setIsLoading(true);
-    setSuggestion(null);
-
-    const input = {
-      item: item.name,
-      condition: item.condition,
-      ...values,
-    };
-
-    const result = await generateSuggestions(input);
-
-    setIsLoading(false);
-    if (result.success && result.data) {
-      setSuggestion(result.data);
-      toast({
-        title: 'Suggestion Generated!',
-        description: 'Check out the AI-powered negotiation advice below.',
-      });
-    } else {
-      toast({
-        variant: 'destructive',
-        title: 'Error',
-        description: result.error,
-      });
-    }
+    // Navigate to the booking page with the offered price
+    router.push(`/book/${item.id}?price=${values.price}`);
   }
 
   return (
@@ -197,7 +71,7 @@ export default function BargainForm({ item }: { item: RentalItem }) {
       <CardHeader>
         <CardTitle>Make Your Offer</CardTitle>
         <CardDescription>
-          Submit your desired terms, and our AI assistant will provide negotiation advice.
+          Submit your desired terms to proceed with the booking.
         </CardDescription>
       </CardHeader>
       <Form {...form}>
@@ -273,37 +147,10 @@ export default function BargainForm({ item }: { item: RentalItem }) {
               {isLoading ? (
                 <Loader2 className="mr-2 h-4 w-4 animate-spin" />
               ) : (
-                <Sparkles className="mr-2 h-4 w-4" />
+                <CreditCard className="mr-2 h-4 w-4" />
               )}
-              Get AI Suggestion
+              Confirm & Pay
             </Button>
-
-            {suggestion && (
-              <div className="mt-6 space-y-4 border-t pt-6">
-                <Alert>
-                  <Lightbulb className="h-4 w-4" />
-                  <AlertTitle>AI Negotiation Advice</AlertTitle>
-                  <AlertDescription>
-                    <p className="font-semibold">
-                      Reasoning: <span className="font-normal">{suggestion.reasoning}</span>
-                    </p>
-                    <div className="my-2 rounded-md border bg-muted p-3">
-                      <p className="text-sm font-medium text-muted-foreground">
-                        Suggested Price
-                      </p>
-                      <p className="text-2xl font-bold text-accent">
-                        Rs {suggestion.suggestedPrice.toFixed(2)}{' '}
-                        <span className="text-base font-normal">/ day</span>
-                      </p>
-                    </div>
-                     <p className="font-semibold">
-                      Suggested Terms: <span className="font-normal">{suggestion.suggestedTerms}</span>
-                    </p>
-                  </AlertDescription>
-                </Alert>
-                <BookingForm item={item} price={suggestion.suggestedPrice} />
-              </div>
-            )}
           </CardFooter>
         </form>
       </Form>
