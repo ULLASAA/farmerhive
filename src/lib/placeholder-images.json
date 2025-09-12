@@ -97,7 +97,7 @@
       "price": 70,
       "unit": "day",
       "condition": "Good",
-      "imageUrl": "https://images.unsplash.com/photo-1692264204894-384f506778a8?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxOHx8cGxvdWdoZXIlMjB0b29sJTIwYWdyaWN1bHR1cmV8ZW58MHx8fHwxNzU3Njk3MDEyfDA&ixlib-rb-4.1.0&q=80&w=1080",
+      "imageUrl": "https://images.unsplash.com/photo-1692264204894-384f506778a8?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxOHx8cGxvdWdoZXIlMjB0b29sJTIwYWdyaWN1bHR1cmV8ZW58MHx8fHwxNzU3Njk3MDEyfDA&ixlib=rb-4.1.0&q=80&w=1080",
       "imageHint": "farm plough",
       "owner": {
         "id": "owner-5",
@@ -130,6 +130,50 @@
         "address": "56 Canal Rd, Bathinda, Punjab"
       },
       "reviews": { "rating": 4.9, "count": 40 },
+      "availability": { "status": "Available", "nextAvailable": "Today" }
+    },
+    {
+      "id": "11",
+      "name": "Hand Trowel",
+      "description": "A sturdy hand trowel for planting and weeding. Ergonomic handle for comfort.",
+      "category": "tools",
+      "subcategory": "gardening tools",
+      "price": 5,
+      "unit": "day",
+      "condition": "New",
+      "imageUrl": "https://picsum.photos/seed/hand-trowel/600/400",
+      "imageHint": "gardening trowel",
+      "owner": {
+        "id": "owner-1",
+        "name": "Gurpreet Singh",
+        "avatarUrl": "https://i.pravatar.cc/150?u=gurpreet",
+        "email": "gurpreet.singh@example.com",
+        "phone": "+91-9876543211",
+        "address": "12 Main St, Ludhiana, Punjab"
+      },
+      "reviews": { "rating": 4.9, "count": 50 },
+      "availability": { "status": "Available", "nextAvailable": "Today" }
+    },
+    {
+      "id": "12",
+      "name": "Backpack Sprayer",
+      "description": "A comfortable backpack sprayer for pesticides or fertilizers. Holds up to 4 gallons.",
+      "category": "tools",
+      "subcategory": "spraying equipment",
+      "price": 25,
+      "unit": "day",
+      "condition": "Good",
+      "imageUrl": "https://picsum.photos/seed/backpack-sprayer/600/400",
+      "imageHint": "backpack sprayer",
+      "owner": {
+        "id": "owner-2",
+        "name": "Harman Kaur",
+        "avatarUrl": "https://i.pravatar.cc/150?u=harman",
+        "email": "harman.kaur@example.com",
+        "phone": "+91-9876543212",
+        "address": "45 Market Rd, Amritsar, Punjab"
+      },
+      "reviews": { "rating": 4.7, "count": 15 },
       "availability": { "status": "Available", "nextAvailable": "Today" }
     },
     {
@@ -185,7 +229,7 @@
       "price": 300,
       "unit": "bag",
       "condition": "New",
-      "imageUrl": "https://images.unsplash.com/photo-1641912593355-134c57c76246?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxfHxjb3JuJTIwc2VlZHN8ZW58MHx8fHwxNzU3Njk4MzY5fDA&ixlib-rb-4.1.0&q=80&w=1080",
+      "imageUrl": "https://images.unsplash.com/photo-1641912593355-134c57c76246?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxfHxjb3JuJTIwc2VlZHN8ZW58MHx8fHwxNzU3Njk4MzY5fDA&ixlib=rb-4.1.0&q=80&w=1080",
       "imageHint": "corn seeds",
       "owner": {
         "id": "owner-9",
