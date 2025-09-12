@@ -1,7 +1,7 @@
 'use client';
 
 import { useState } from 'react';
-import { useForm, useFormContext } from 'react-hook-form';
+import { useForm } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
 import * as z from 'zod';
 import {
@@ -35,7 +35,6 @@ import { generateSuggestions } from '@/app/actions';
 import type { RentalItem } from '@/lib/placeholder-images';
 import type { BargainingSuggestionOutput } from '@/ai/flows/bargaining-suggestions';
 import { Loader2, Sparkles, Lightbulb, ShoppingCart } from 'lucide-react';
-import Link from 'next/link';
 import { Alert, AlertDescription, AlertTitle } from '@/components/ui/alert';
 import { RadioGroup, RadioGroupItem } from '@/components/ui/radio-group';
 import { useRouter } from 'next/navigation';
@@ -223,10 +222,23 @@ export default function BargainForm({ item }: { item: RentalItem }) {
               render={({ field }) => (
                 <FormItem>
                   <FormLabel>Rental Duration</FormLabel>
-                  <FormControl>
-                    <Input placeholder="e.g., 3 days, 1 week" {...field} />
-                  </FormControl>
-                  <FormDescription>How long do you need the item?</FormDescription>
+                  <Select
+                    onValueChange={field.onChange}
+                    defaultValue={field.value}
+                  >
+                    <FormControl>
+                      <SelectTrigger>
+                        <SelectValue placeholder="Select a duration" />
+                      </SelectTrigger>
+                    </FormControl>
+                    <SelectContent>
+                      <SelectItem value="1 day">1 Day</SelectItem>
+                      <SelectItem value="3 days">3 Days</SelectItem>
+                      <SelectItem value="1 week">1 Week</SelectItem>
+                      <SelectItem value="2 weeks">2 Weeks</SelectItem>
+                      <SelectItem value="1 month">1 Month</SelectItem>
+                    </SelectContent>
+                  </Select>
                   <FormMessage />
                 </FormItem>
               )}
@@ -243,12 +255,12 @@ export default function BargainForm({ item }: { item: RentalItem }) {
                   >
                     <FormControl>
                       <SelectTrigger>
-                        <SelectValue placeholder="Select a delivery method" />
+                        <SelectValue placeholder="Select a delivery option" />
                       </SelectTrigger>
                     </FormControl>
                     <SelectContent>
                       <SelectItem value="pickup">I will pick it up</SelectItem>
-                      <SelectItem value="delivery">Deliver to me</SelectItem>
+                      <SelectItem value="delivery">Deliver to my address</SelectItem>
                     </SelectContent>
                   </Select>
                   <FormMessage />
@@ -256,12 +268,8 @@ export default function BargainForm({ item }: { item: RentalItem }) {
               )}
             />
           </CardContent>
-          <CardFooter>
-            <Button
-              type="submit"
-              disabled={isLoading}
-              className="w-full bg-accent text-accent-foreground hover:bg-accent/90"
-            >
+          <CardFooter className="flex-col items-stretch">
+            <Button type="submit" disabled={isLoading} className="w-full">
               {isLoading ? (
                 <Loader2 className="mr-2 h-4 w-4 animate-spin" />
               ) : (
@@ -269,33 +277,36 @@ export default function BargainForm({ item }: { item: RentalItem }) {
               )}
               Get AI Suggestion
             </Button>
+
+            {suggestion && (
+              <div className="mt-6 space-y-4 border-t pt-6">
+                <Alert>
+                  <Lightbulb className="h-4 w-4" />
+                  <AlertTitle>AI Negotiation Advice</AlertTitle>
+                  <AlertDescription>
+                    <p className="font-semibold">
+                      Reasoning: <span className="font-normal">{suggestion.reasoning}</span>
+                    </p>
+                    <div className="my-2 rounded-md border bg-muted p-3">
+                      <p className="text-sm font-medium text-muted-foreground">
+                        Suggested Price
+                      </p>
+                      <p className="text-2xl font-bold text-accent">
+                        ₹{suggestion.suggestedPrice.toFixed(2)}{' '}
+                        <span className="text-base font-normal">/ day</span>
+                      </p>
+                    </div>
+                     <p className="font-semibold">
+                      Suggested Terms: <span className="font-normal">{suggestion.suggestedTerms}</span>
+                    </p>
+                  </AlertDescription>
+                </Alert>
+                <BookingForm item={item} price={suggestion.suggestedPrice} />
+              </div>
+            )}
           </CardFooter>
         </form>
       </Form>
-
-      {suggestion && (
-        <div className="p-4 pt-0">
-          <Alert className="border-accent bg-accent/10">
-            <Lightbulb className="h-4 w-4 text-accent" />
-            <AlertTitle className="text-accent">AI Bargaining Assistant</AlertTitle>
-            <AlertDescription className="space-y-4">
-              <div>
-                <p className="font-semibold">Suggested Price:</p>
-                <p className="text-2xl font-bold text-primary">₹{suggestion.suggestedPrice.toFixed(2)} <span className="text-sm font-normal text-muted-foreground">/day</span></p>
-              </div>
-              <div>
-                <p className="font-semibold">Suggested Terms:</p>
-                <p>{suggestion.suggestedTerms}</p>
-              </div>
-              <div>
-                <p className="font-semibold">Reasoning:</p>
-                <p>{suggestion.reasoning}</p>
-              </div>
-              <BookingForm item={item} price={suggestion.suggestedPrice} />
-            </AlertDescription>
-          </Alert>
-        </div>
-      )}
     </Card>
   );
 }
