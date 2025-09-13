@@ -16,7 +16,7 @@ import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar';
 import { Badge } from '@/components/ui/badge';
 import { Button } from '@/components/ui/button';
 import { Separator } from '@/components/ui/separator';
-import { Mail, MapPin, Phone, Star, ArrowLeft } from 'lucide-react';
+import { Mail, MapPin, Phone, Star, ArrowLeft, UserX, ShieldCheck } from 'lucide-react';
 import { useState } from 'react';
 import {
   Select,
@@ -27,10 +27,25 @@ import {
   SelectGroup,
   SelectLabel,
 } from '@/components/ui/select';
+import {
+  AlertDialog,
+  AlertDialogAction,
+  AlertDialogCancel,
+  AlertDialogContent,
+  AlertDialogDescription,
+  AlertDialogFooter,
+  AlertDialogHeader,
+  AlertDialogTitle,
+  AlertDialogTrigger,
+} from "@/components/ui/alert-dialog"
+import { useToast } from "@/hooks/use-toast"
+
 
 // This is the Client Component that handles state and interactivity.
 function OwnerProfileClient({ owner, ownerItems }: { owner: Owner, ownerItems: RentalItem[] }) {
+  const { toast } = useToast();
   const [filter, setFilter] = useState('all');
+  const [isBlocked, setIsBlocked] = useState(false);
   
   const totalReviews = ownerItems.reduce((acc, item) => acc + item.reviews.count, 0);
   const averageRating = ownerItems.length > 0 
@@ -50,6 +65,46 @@ function OwnerProfileClient({ owner, ownerItems }: { owner: Owner, ownerItems: R
     }
   );
 
+  const handleBlockFarmer = () => {
+    // In a real app, you would call an API to block the user.
+    // For now, we'll just simulate it on the client.
+    console.log(`Blocking farmer: ${owner.name} (${owner.id})`);
+    setIsBlocked(true);
+    toast({
+      title: "Farmer Blocked",
+      description: `${owner.name} has been blocked and removed from the platform.`,
+      variant: "destructive"
+    });
+  }
+
+  if (isBlocked) {
+    return (
+      <div className="container mx-auto px-4 py-8 flex items-center justify-center">
+        <Card className="w-full max-w-md text-center">
+          <CardHeader>
+            <CardTitle className="flex items-center justify-center gap-2">
+              <ShieldCheck className="h-8 w-8 text-green-600" />
+              Farmer Blocked
+            </CardTitle>
+          </CardHeader>
+          <CardContent>
+            <p className="text-muted-foreground">
+              <span className="font-semibold">{owner.name}</span> has been successfully blocked. Their profile and listings will no longer be visible on the platform.
+            </p>
+          </CardContent>
+          <CardFooter>
+            <Button asChild className="w-full">
+              <Link href="/rent">
+                <ArrowLeft className="mr-2 h-4 w-4" />
+                Return to Listings
+              </Link>
+            </Button>
+          </CardFooter>
+        </Card>
+      </div>
+    )
+  }
+
   return (
     <div className="container mx-auto px-4 py-8">
        <div className="mb-4">
@@ -62,7 +117,7 @@ function OwnerProfileClient({ owner, ownerItems }: { owner: Owner, ownerItems: R
       </div>
       <div className="grid grid-cols-1 gap-8 md:grid-cols-3">
         <div className="md:col-span-1">
-          <Card className="overflow-hidden">
+          <Card className="overflow-hidden flex flex-col h-full">
              <CardHeader className="relative flex flex-col items-center text-center">
               <Avatar className="h-32 w-32 border-4 border-background">
                 <AvatarImage src={owner.avatarUrl} alt={owner.name} />
@@ -77,7 +132,7 @@ function OwnerProfileClient({ owner, ownerItems }: { owner: Owner, ownerItems: R
                 </div>
               </div>
             </CardHeader>
-            <CardContent className="p-6 pt-2">
+            <CardContent className="p-6 pt-2 flex-grow">
                <Separator className="my-4" />
                <div className="space-y-4">
                  <div className="flex items-start space-x-4">
@@ -107,6 +162,28 @@ function OwnerProfileClient({ owner, ownerItems }: { owner: Owner, ownerItems: R
                 </div>
                </div>
             </CardContent>
+            <CardFooter className="p-6 pt-0">
+               <AlertDialog>
+                  <AlertDialogTrigger asChild>
+                    <Button variant="destructive" className="w-full">
+                      <UserX className="mr-2 h-4 w-4" />
+                      Block Farmer
+                    </Button>
+                  </AlertDialogTrigger>
+                  <AlertDialogContent>
+                    <AlertDialogHeader>
+                      <AlertDialogTitle>Are you absolutely sure?</AlertDialogTitle>
+                      <AlertDialogDescription>
+                        This action will permanently block <span className="font-semibold">{owner.name}</span> and remove their listings from the platform. This cannot be undone.
+                      </AlertDialogDescription>
+                    </AlertDialogHeader>
+                    <AlertDialogFooter>
+                      <AlertDialogCancel>Cancel</AlertDialogCancel>
+                      <AlertDialogAction onClick={handleBlockFarmer}>Yes, block farmer</AlertDialogAction>
+                    </AlertDialogFooter>
+                  </AlertDialogContent>
+                </AlertDialog>
+            </CardFooter>
           </Card>
         </div>
         <div className="md:col-span-2">
@@ -175,6 +252,12 @@ function OwnerProfileClient({ owner, ownerItems }: { owner: Owner, ownerItems: R
                 </Card>
                 ))}
             </div>
+             {filteredItems.length === 0 && (
+              <div className="col-span-1 sm:col-span-2 flex flex-col items-center justify-center text-center text-muted-foreground border-2 border-dashed rounded-lg p-12 mt-4">
+                <p className="text-lg font-semibold">No listings found for this filter.</p>
+                <p>Try selecting a different category.</p>
+              </div>
+            )}
         </div>
       </div>
     </div>
