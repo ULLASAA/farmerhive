@@ -14,6 +14,14 @@ import { Separator } from '@/components/ui/separator';
 
 type Season = 'Kharif (Monsoon)' | 'Rabi (Winter)' | 'Zaid (Summer)';
 
+const indianStates = [
+  'Andhra Pradesh', 'Arunachal Pradesh', 'Assam', 'Bihar', 'Chhattisgarh', 
+  'Goa', 'Gujarat', 'Haryana', 'Himachal Pradesh', 'Jharkhand', 'Karnataka', 
+  'Kerala', 'Madhya Pradesh', 'Maharashtra', 'Manipur', 'Meghalaya', 
+  'Mizoram', 'Nagaland', 'Odisha', 'Punjab', 'Rajasthan', 'Sikkim', 
+  'Tamil Nadu', 'Telangana', 'Tripura', 'Uttar Pradesh', 'Uttarakhand', 'West Bengal'
+];
+
 const historicalDataSummary = "Past rentals show high demand for tractors and harvesters year-round. Plows and seeders peak pre-monsoon and pre-winter. Irrigation tools are most popular in the dry summer months.";
 
 type FullAnalysis = {
@@ -24,6 +32,7 @@ type FullAnalysis = {
 export default function PredictiveDemand() {
   const { toast } = useToast();
   const [season, setSeason] = useState<Season>('Kharif (Monsoon)');
+  const [region, setRegion] = useState<string>('Punjab');
   const [isLoading, setIsLoading] = useState(false);
   const [analysis, setAnalysis] = useState<FullAnalysis | null>(null);
 
@@ -32,7 +41,7 @@ export default function PredictiveDemand() {
     setAnalysis(null);
     try {
       const input: PredictiveDemandInput = {
-        region: 'Punjab',
+        region: region,
         season: season,
         historicalData: historicalDataSummary,
       };
@@ -89,10 +98,20 @@ export default function PredictiveDemand() {
                 AI Demand Forecast
             </CardTitle>
             <CardDescription className="mt-2 text-base">
-                Predictive analysis for tool rental demand in Punjab.
+                Predictive analysis for tool rental demand in {region}.
             </CardDescription>
         </div>
         <div className="flex items-center gap-2">
+           <Select value={region} onValueChange={setRegion}>
+            <SelectTrigger className="w-[180px]">
+              <SelectValue placeholder="Select a region" />
+            </SelectTrigger>
+            <SelectContent>
+              {indianStates.map(state => (
+                <SelectItem key={state} value={state}>{state}</SelectItem>
+              ))}
+            </SelectContent>
+          </Select>
            <Select value={season} onValueChange={(value) => setSeason(value as Season)}>
             <SelectTrigger className="w-[200px]">
               <SelectValue placeholder="Select a season" />
@@ -117,7 +136,7 @@ export default function PredictiveDemand() {
         {isLoading && (
           <div className="flex flex-col items-center justify-center rounded-lg border-2 border-dashed p-12 text-center">
             <Loader2 className="h-12 w-12 animate-spin text-primary" />
-            <p className="mt-4 text-lg font-semibold">AI is analyzing market data...</p>
+            <p className="mt-4 text-lg font-semibold">AI is analyzing market data for {region}...</p>
             <p className="text-muted-foreground">This may take a moment. Please wait.</p>
           </div>
         )}
@@ -126,7 +145,7 @@ export default function PredictiveDemand() {
              <div className="flex flex-col items-center justify-center rounded-lg border-2 border-dashed p-12 text-center">
                 <BrainCircuit className="h-12 w-12 text-muted-foreground" />
                 <p className="mt-4 text-lg font-semibold">Ready for Analysis</p>
-                <p className="text-muted-foreground">Select a season and click "Analyze" to generate a demand forecast.</p>
+                <p className="text-muted-foreground">Select a region and season, then click "Analyze" to generate a demand forecast.</p>
             </div>
         )}
 
@@ -135,7 +154,7 @@ export default function PredictiveDemand() {
              <Alert className="border-primary/50 bg-primary/5 text-primary-foreground">
                 <div className="flex items-center gap-3">
                    {getSeasonIcon(season)}
-                   <AlertTitle className="text-lg font-semibold text-primary">AI Analysis for {season} Season</AlertTitle>
+                   <AlertTitle className="text-lg font-semibold text-primary">AI Analysis for {season} Season in {region}</AlertTitle>
                 </div>
                 <AlertDescription className="text-primary/90 mt-2">
                     {analysis.analysis.analysis}

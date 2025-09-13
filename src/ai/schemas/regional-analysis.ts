@@ -10,7 +10,7 @@
 import { z } from 'genkit';
 
 export const RegionalAnalysisInputSchema = z.object({
-  region: z.string().describe('The agricultural region, e.g., Punjab.'),
+  region: z.string().describe('The agricultural region in India, e.g., Punjab, Uttar Pradesh.'),
   season: z.enum(['Kharif (Monsoon)', 'Rabi (Winter)', 'Zaid (Summer)']).describe('The current farming season.'),
 });
 export type RegionalAnalysisInput = z.infer<typeof RegionalAnalysisInputSchema>;
