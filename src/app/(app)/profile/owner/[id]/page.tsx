@@ -180,6 +180,7 @@ function OwnerProfileClient({ owner, ownerItems }: { owner: Owner, ownerItems: R
   );
 }
 
+// This is the exported Server Component
 export default function OwnerProfilePage({ params }: { params: { id: string } }) {
   const owner = rentalItems.find((item) => item.owner.id === params.id)?.owner;
   const ownerItems = rentalItems.filter((item) => item.owner.id === params.id);
@@ -188,5 +189,6 @@ export default function OwnerProfilePage({ params }: { params: { id: string } })
     notFound();
   }
 
+  // The Server component fetches data and passes it to the Client Component
   return <OwnerProfileClient owner={owner} ownerItems={ownerItems} />;
 }
