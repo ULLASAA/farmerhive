@@ -4,11 +4,12 @@ farmerhive is a modern, full-stack web application built with Next.js that serve
 
 ## ✨ Key Features
 
--   **Tool Rentals**: Browse a catalog of available tools, view details, and make rental offers.
+-   **Peer-to-Peer Rentals**: Farmers can easily post their own tools for rent, creating a community-driven inventory.
+-   **Online Booking and Payments**: Securely book rentals and process payments directly through the platform.
 -   **Marketplace**: Purchase essential farming supplies like seeds, pesticides, and fertilizers.
 -   **Bargaining System**: Users can negotiate rental prices and terms directly with the item owner.
 -   **AI-Powered Insights**:
-    -   **Demand Forecasting**: An AI-driven dashboard to predict the demand for various tools based on region and season.
+    -   **Demand Forecasting**: An AI-driven dashboard matches supply with demand by predicting the need for various tools based on region, season, and crop cycles.
     -   **Bargaining Assistant**: Get AI-powered suggestions for fair rental prices and terms.
 -   **Admin Dashboard**: A comprehensive dashboard for platform administrators to monitor revenue, transactions, and user activity.
 -   **Security Monitoring**: Track overdue items and take action to ensure platform integrity.
