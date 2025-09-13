@@ -28,6 +28,7 @@ import {
   SelectLabel,
 } from '@/components/ui/select';
 
+// This is the Client Component that handles state and interactivity.
 function OwnerProfileClient({ owner, ownerItems }: { owner: Owner, ownerItems: RentalItem[] }) {
   const [filter, setFilter] = useState('all');
   
@@ -180,7 +181,7 @@ function OwnerProfileClient({ owner, ownerItems }: { owner: Owner, ownerItems: R
   );
 }
 
-// This is the exported Server Component
+// This is the exported Server Component that fetches data.
 export default function OwnerProfilePage({ params }: { params: { id: string } }) {
   const owner = rentalItems.find((item) => item.owner.id === params.id)?.owner;
   const ownerItems = rentalItems.filter((item) => item.owner.id === params.id);
