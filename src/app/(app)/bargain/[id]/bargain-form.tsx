@@ -105,7 +105,7 @@ export default function BargainForm({ item }: { item: RentalItem }) {
 
   async function onSubmit(values: z.infer<typeof bargainFormSchema>) {
     setIsLoading(true);
-    // Simulate sending the offer to the owner
+    // Simulate sending the offer to the owner and creating a notification
     console.log('Sending offer to owner:', {
       itemId: item.id,
       ...values
@@ -116,7 +116,7 @@ export default function BargainForm({ item }: { item: RentalItem }) {
         setIsLoading(false);
         toast({
             title: "Offer Sent!",
-            description: "Your offer has been sent to the owner for confirmation."
+            description: "The owner has been notified of your offer."
         });
     }, 1500);
 

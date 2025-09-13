@@ -29,6 +29,22 @@ const initialNotifications = [
     createdAt: new Date(Date.now() - 30 * 60 * 1000), // 30 minutes ago
   },
   {
+    id: 'noti-3',
+    type: 'bargain-offer',
+    itemId: '6', // Plow Attachment
+    renter: {
+      name: 'Sunita Devi',
+      avatarUrl: 'https://i.pravatar.cc/150?u=sunita-devi'
+    },
+    offer: {
+      price: 450,
+      unit: 'day',
+      duration: '1 day',
+    },
+    status: 'pending',
+    createdAt: new Date(Date.now() - 90 * 60 * 1000), // 90 minutes ago
+  },
+  {
     id: 'noti-2',
     type: 'bargain-response',
     itemId: '9', // Seeder
@@ -111,7 +127,7 @@ export default function NotificationsPage() {
                                 <div className="flex-grow space-y-3">
                                     <h3 className="text-lg font-semibold text-primary">{item.name}</h3>
                                     <p><strong>Renter:</strong> {noti.renter.name}</p>
-                                    <p><strong>Offered Price:</strong> <span className="font-bold text-lg">Rs {noti.offer.price.toFixed(2)} / {noti.offer.unit}</span></p>
+                                    <p><strong>Offered Price:</strong> <span className="font-bold text-lg">Rs {noti.offer.price.toFixed(2)} / {item.unit}</span></p>
                                     <p><strong>Duration:</strong> {noti.offer.duration}</p>
                                      <p className="text-sm text-muted-foreground">Original Price: Rs {item.price.toFixed(2)} / {item.unit}</p>
                                 </div>
