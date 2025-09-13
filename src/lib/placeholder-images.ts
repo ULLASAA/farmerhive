@@ -1,6 +1,15 @@
 import type { StaticImageData } from 'next/image';
 import data from './placeholder-images.json';
 
+export type Owner = {
+  id: string;
+  name: string;
+  avatarUrl: string;
+  email: string;
+  phone: string;
+  address: string;
+};
+
 export type RentalItem = {
   id: string;
   name: string;
@@ -12,14 +21,7 @@ export type RentalItem = {
   condition: 'New' | 'Excellent' | 'Good' | 'Used';
   imageUrl: string;
   imageHint: string;
-  owner: {
-    id: string;
-    name: string;
-    avatarUrl: string;
-    email: string;
-    phone: string;
-    address: string;
-  };
+  owner: Owner;
   reviews: {
     rating: number;
     count: number;

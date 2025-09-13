@@ -3,7 +3,7 @@
 import Image from 'next/image';
 import Link from 'next/link';
 import { notFound } from 'next/navigation';
-import { rentalItems, type RentalItem, buyableCategories, categories as allCategories } from '@/lib/placeholder-images';
+import { rentalItems, type RentalItem, buyableCategories, categories as allCategories, type Owner } from '@/lib/placeholder-images';
 import {
   Card,
   CardContent,
@@ -28,15 +28,8 @@ import {
   SelectLabel,
 } from '@/components/ui/select';
 
-export default function OwnerProfilePage({ params }: { params: { id: string } }) {
+function OwnerProfileClient({ owner, ownerItems }: { owner: Owner, ownerItems: RentalItem[] }) {
   const [filter, setFilter] = useState('all');
-
-  const owner = rentalItems.find((item) => item.owner.id === params.id)?.owner;
-  const ownerItems = rentalItems.filter((item) => item.owner.id === params.id);
-
-  if (!owner) {
-    notFound();
-  }
   
   const totalReviews = ownerItems.reduce((acc, item) => acc + item.reviews.count, 0);
   const averageRating = ownerItems.length > 0 
@@ -55,7 +48,6 @@ export default function OwnerProfilePage({ params }: { params: { id: string } })
       return item.category === category && item.subcategory === subcategory;
     }
   );
-
 
   return (
     <div className="container mx-auto px-4 py-8">
@@ -186,4 +178,15 @@ export default function OwnerProfilePage({ params }: { params: { id: string } })
       </div>
     </div>
   );
+}
+
+export default function OwnerProfilePage({ params }: { params: { id: string } }) {
+  const owner = rentalItems.find((item) => item.owner.id === params.id)?.owner;
+  const ownerItems = rentalItems.filter((item) => item.owner.id === params.id);
+
+  if (!owner) {
+    notFound();
+  }
+
+  return <OwnerProfileClient owner={owner} ownerItems={ownerItems} />;
 }
